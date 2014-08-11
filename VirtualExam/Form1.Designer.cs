@@ -75,18 +75,18 @@
             this.下載題庫ToolStripMenuItem,
             this.提供題庫ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
             // 
             // 下載題庫ToolStripMenuItem
             // 
             this.下載題庫ToolStripMenuItem.Name = "下載題庫ToolStripMenuItem";
-            this.下載題庫ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.下載題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.下載題庫ToolStripMenuItem.Text = "下載題庫";
             // 
             // 提供題庫ToolStripMenuItem
             // 
             this.提供題庫ToolStripMenuItem.Name = "提供題庫ToolStripMenuItem";
-            this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.提供題庫ToolStripMenuItem.Text = "提供題庫";
             // 
             // button1
@@ -183,7 +183,7 @@
             this.btnAns.Name = "btnAns";
             this.btnAns.Size = new System.Drawing.Size(75, 23);
             this.btnAns.TabIndex = 9;
-            this.btnAns.Text = "答案";
+            this.btnAns.Text = "顯示答案";
             this.btnAns.UseVisualStyleBackColor = true;
             this.btnAns.Click += new System.EventHandler(this.btnAns_Click);
             // 

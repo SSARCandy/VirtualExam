@@ -13,18 +13,34 @@ namespace VirtualExam
 {
     public partial class Form1 : Form
     {
+        private RadioButton[] selections = new RadioButton[4]; 
+        _Application myExcel;
+        _Workbook myBook;
+        _Worksheet mySheet;
+        Range myRange;
+        myExcelCollection[] question ;
+
 
         public Form1()
         {
             InitializeComponent();
+            Initialize();
         }
-        _Application myExcel = null;
-        _Workbook myBook = null;
-        _Worksheet mySheet = null;
-        Range myRange = null;
 
-        myExcelCollection[] question = null;
+        private void Initialize()
+        {
+            myBook = null;
+            myExcel = null;
+            mySheet = null;
+            myRange = null;
+            question = null;
 
+            //把選項存入array
+            selections[0] = radioButton1;
+            selections[1] = radioButton2;
+            selections[2] = radioButton3;
+            selections[3] = radioButton4;
+        } 
         int examIndex = 0;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -173,6 +189,10 @@ namespace VirtualExam
             if (!btnNext.Enabled)
                 btnNext.Enabled = true;
             label3.Text = Convert.ToString(examIndex + 1);
+       
+            //把選像顏色恢復 黑色
+            foreach (RadioButton r in selections)
+                r.ForeColor = Color.Black;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -187,6 +207,10 @@ namespace VirtualExam
 
             if(examIndex<question.Length)
                 label3.Text = Convert.ToString(examIndex + 1);
+
+            //把選像顏色恢復 黑色
+            foreach (RadioButton r in selections)
+                r.ForeColor = Color.Black;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -227,9 +251,20 @@ namespace VirtualExam
             checkBox1.Checked = question[examIndex].getMark();
         }
 
-
+        /*
+         * 顯示答案 :  正解 綠色 ; 其餘 紅色 
+         * 顯示答案時間僅持續一題
+         */
         private void btnAns_Click(object sender, EventArgs e)
         {
+            foreach (RadioButton r in selections)
+            {
+                if (r.Text == question[examIndex].getAnswer())
+                    r.ForeColor = Color.Green;
+                else
+                    r.ForeColor = Color.Red;
+            }
+            /*
             if (radioButton1.Text == question[examIndex].getAnswer())
                 radioButton1.ForeColor = Color.Green;
             else
@@ -249,6 +284,7 @@ namespace VirtualExam
                 radioButton4.ForeColor = Color.Green;
             else
                 radioButton4.ForeColor = Color.Red;
+             */
         }
 
         private void button2_Click(object sender, EventArgs e)
