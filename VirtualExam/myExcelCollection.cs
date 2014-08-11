@@ -20,7 +20,7 @@ namespace VirtualExam
 
         private string usersAnswer = "";
         public myExcelCollection() { }
-        public myExcelCollection(string question,string answerA,string answerB,string answerC,string answerD,string answer)
+        public myExcelCollection(string question, string answerA, string answerB, string answerC, string answerD, string answer)
         {
             this.question = question;
             this.answerA = answerA;
@@ -32,7 +32,7 @@ namespace VirtualExam
         }
         void findAnswer()
         {
-            if(this.answer=="A")
+            if (this.answer == "A")
             {
                 this.answer = this.answerA;
             }
@@ -89,6 +89,32 @@ namespace VirtualExam
         public bool getMark()
         {
             return mark;
+        }
+        public bool getShowAnswer()
+        {
+            return showAnswer;
+        }
+        public void setShowAnswer(bool b)
+        {
+            showAnswer = b;
+        }
+        public void randOption()
+        {
+            string[] s = new string[4];
+            s[0] = this.answerA;
+            s[1] = this.answerB;
+            s[2] = this.answerC;
+            s[3] = this.answerD;
+            Random r = new Random();
+            for (int i = 0; i < 4; i++)
+            {
+                int r1 = r.Next(0, 3);
+                string s1 = s[0]; s[0] = s[r1]; s[r1] = s1;
+            }
+            this.answerA = s[0];
+            this.answerB = s[1];
+            this.answerC = s[2];
+            this.answerD = s[3];
         }
     }
 }

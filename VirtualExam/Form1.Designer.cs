@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("證券商業務員");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("證基會", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("初階外匯");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("金研院", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("金融證照", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("證券商業務員");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("證基會", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("初階外匯");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("金研院", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("金融證照", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode14});
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.下載題庫ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提供題庫ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,18 +75,18 @@
             this.下載題庫ToolStripMenuItem,
             this.提供題庫ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 48);
             // 
             // 下載題庫ToolStripMenuItem
             // 
             this.下載題庫ToolStripMenuItem.Name = "下載題庫ToolStripMenuItem";
-            this.下載題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.下載題庫ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.下載題庫ToolStripMenuItem.Text = "下載題庫";
             // 
             // 提供題庫ToolStripMenuItem
             // 
             this.提供題庫ToolStripMenuItem.Name = "提供題庫ToolStripMenuItem";
-            this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.提供題庫ToolStripMenuItem.Text = "提供題庫";
             // 
             // button1
@@ -191,19 +191,19 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.ContextMenuStrip = this.contextMenuStrip1;
-            treeNode1.Name = "金融證照\\證基會\\證券商業務員.xlsx";
-            treeNode1.Text = "證券商業務員";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "證基會";
-            treeNode3.Name = "Node9";
-            treeNode3.Text = "初階外匯";
-            treeNode4.Name = "Node8";
-            treeNode4.Text = "金研院";
-            treeNode5.Name = "Node0";
-            treeNode5.Text = "金融證照";
+            treeNode11.ContextMenuStrip = this.contextMenuStrip1;
+            treeNode11.Name = "金融證照\\證基會\\證券商業務員.xlsx";
+            treeNode11.Text = "證券商業務員";
+            treeNode12.Name = "Node2";
+            treeNode12.Text = "證基會";
+            treeNode13.Name = "Node9";
+            treeNode13.Text = "初階外匯";
+            treeNode14.Name = "Node8";
+            treeNode14.Text = "金研院";
+            treeNode15.Name = "Node0";
+            treeNode15.Text = "金融證照";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode15});
             this.treeView1.Size = new System.Drawing.Size(142, 469);
             this.treeView1.TabIndex = 10;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -246,6 +246,7 @@
             this.checkBox2.TabIndex = 15;
             this.checkBox2.Text = "打亂題目";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -256,6 +257,7 @@
             this.checkBox3.TabIndex = 16;
             this.checkBox3.Text = "打亂選項";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // label2
             // 

@@ -189,10 +189,7 @@ namespace VirtualExam
             if (!btnNext.Enabled)
                 btnNext.Enabled = true;
             label3.Text = Convert.ToString(examIndex + 1);
-       
-            //把選像顏色恢復 黑色
-            foreach (RadioButton r in selections)
-                r.ForeColor = Color.Black;
+            showAnswer();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -208,9 +205,7 @@ namespace VirtualExam
             if(examIndex<question.Length)
                 label3.Text = Convert.ToString(examIndex + 1);
 
-            //把選像顏色恢復 黑色
-            foreach (RadioButton r in selections)
-                r.ForeColor = Color.Black;
+            showAnswer();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -257,13 +252,25 @@ namespace VirtualExam
          */
         private void btnAns_Click(object sender, EventArgs e)
         {
-            foreach (RadioButton r in selections)
+            if(!question[examIndex].getShowAnswer())
+            {
+                question[examIndex].setShowAnswer(true);
+                showAnswer();
+                btnAns.Text = "隱藏答案";
+            }
+            else
+            {
+                question[examIndex].setShowAnswer(false);
+                showAnswer();
+                btnAns.Text = "顯示答案";
+            }
+            /*foreach (RadioButton r in selections)
             {
                 if (r.Text == question[examIndex].getAnswer())
                     r.ForeColor = Color.Green;
                 else
                     r.ForeColor = Color.Red;
-            }
+            }*/
             /*
             if (radioButton1.Text == question[examIndex].getAnswer())
                 radioButton1.ForeColor = Color.Green;
@@ -292,6 +299,51 @@ namespace VirtualExam
             examIndex = Convert.ToInt16(textBox1.Text) - 1;
             exam(examIndex);
             label3.Text = Convert.ToString((Convert.ToInt16(textBox1.Text)));
+        }
+        void showAnswer()
+        {
+            if(question[examIndex].getShowAnswer())
+            { 
+                //顯示答案
+                foreach (RadioButton r in selections)
+                {
+                 if (r.Text == question[examIndex].getAnswer())
+                       r.ForeColor = Color.Green;
+                 else
+                      r.ForeColor = Color.Red;
+                }
+
+            }
+            else
+            {
+                //把選像顏色恢復 黑色
+                foreach (RadioButton r in selections)
+                r.ForeColor = Color.Black;
+            }
+           
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                Random r = new Random();
+                //int r1 = r.Next(0, question.Length - 1);
+                for (int i = 0; i < question.Length; i++)
+                {
+                    int r1 = r.Next(0, question.Length - 1);
+                    myExcelCollection m = question[i]; question[i] = question[r1]; question[r1] = m;
+                    exam(examIndex);
+                }
+            }
+            
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (myExcelCollection m in question)
+                m.randOption();
+            exam(examIndex);
         }
     }
 }
