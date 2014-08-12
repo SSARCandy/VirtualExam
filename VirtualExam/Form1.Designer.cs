@@ -1,6 +1,6 @@
 ﻿namespace VirtualExam
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -80,18 +80,18 @@
             this.下載題庫ToolStripMenuItem,
             this.提供題庫ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
             // 
             // 下載題庫ToolStripMenuItem
             // 
             this.下載題庫ToolStripMenuItem.Name = "下載題庫ToolStripMenuItem";
-            this.下載題庫ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.下載題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.下載題庫ToolStripMenuItem.Text = "下載題庫";
             // 
             // 提供題庫ToolStripMenuItem
             // 
             this.提供題庫ToolStripMenuItem.Name = "提供題庫ToolStripMenuItem";
-            this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.提供題庫ToolStripMenuItem.Text = "提供題庫";
             // 
             // button1
@@ -124,7 +124,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "answerA";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -332,6 +331,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(54, 22);
             this.textBox1.TabIndex = 23;
+            this.textBox1.Text = "1";
             // 
             // checkAns
             // 
@@ -366,8 +366,9 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "題數：";
             // 
-            // Form1
+            // MainForm
             // 
+            this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 470);
@@ -396,7 +397,7 @@
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
