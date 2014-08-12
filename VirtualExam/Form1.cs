@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using myexcelcollection;
 
 namespace VirtualExam
 {
@@ -18,7 +19,7 @@ namespace VirtualExam
         _Workbook myBook;
         _Worksheet mySheet;
         Range myRange;
-        myExcelCollection[] question ;
+        MyExcelCollection[] question ;
 
 
         public Form1()
@@ -97,7 +98,7 @@ namespace VirtualExam
                 raws = "F" + count;
                 myRange = mySheet.get_Range(raws);
                 string ans = Convert.ToString(myRange.Value);
-                question[count-1] = new myExcelCollection(q, a, b, c, d, ans);
+                question[count-1] = new MyExcelCollection(q, a, b, c, d, ans);
                 Array.Resize(ref question, question.Length + 1);
 
                 raws = "A" + ++count;
@@ -264,34 +265,6 @@ namespace VirtualExam
                 showAnswer();
                 btnAns.Text = "顯示答案";
             }
-            /*foreach (RadioButton r in selections)
-            {
-                if (r.Text == question[examIndex].getAnswer())
-                    r.ForeColor = Color.Green;
-                else
-                    r.ForeColor = Color.Red;
-            }*/
-            /*
-            if (radioButton1.Text == question[examIndex].getAnswer())
-                radioButton1.ForeColor = Color.Green;
-            else
-                radioButton1.ForeColor=Color.Red;
-
-            if (radioButton2.Text == question[examIndex].getAnswer())
-                radioButton2.ForeColor = Color.Green;
-            else
-                radioButton2.ForeColor = Color.Red;
-
-            if (radioButton3.Text == question[examIndex].getAnswer())
-                radioButton3.ForeColor = Color.Green;
-            else
-                radioButton3.ForeColor = Color.Red;
-
-            if (radioButton4.Text == question[examIndex].getAnswer())
-                radioButton4.ForeColor = Color.Green;
-            else
-                radioButton4.ForeColor = Color.Red;
-             */
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -332,7 +305,7 @@ namespace VirtualExam
                 for (int i = 0; i < question.Length; i++)
                 {
                     int r1 = r.Next(0, question.Length - 1);
-                    myExcelCollection m = question[i]; question[i] = question[r1]; question[r1] = m;
+                    MyExcelCollection m = question[i]; question[i] = question[r1]; question[r1] = m;
                     exam(examIndex);
                 }
             }
@@ -341,7 +314,7 @@ namespace VirtualExam
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (myExcelCollection m in question)
+            foreach (MyExcelCollection m in question)
                 m.randOption();
             exam(examIndex);
         }
