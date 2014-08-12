@@ -17,34 +17,36 @@ namespace VirtualExam
 {
     public partial class MainForm : Form
     {
-        private RadioButton[] selections = new RadioButton[4];
-        private bool isLoadQuestion;//判斷是否已載入題庫
-        _Application myExcel;
-        _Workbook myBook;
-        _Worksheet mySheet;
-        Range myRange;
-        MyExcelCollection[] question ;
-
-        int examIndex = 0;
-
+        #region 變數宣告
+        private RadioButton[]            selections          = new RadioButton[4]; // 放置選項
+        private Timer                    time;
+        private int                      timeCount;
+        private const int                TIME                = 900;    // 倒數計時時間 
+        private bool                     isLoadQuestion      = false;  // 判斷是否已載入題庫
+        private int                      examIndex           = 0;      // 目前題號
+        public _Application              myExcel;
+        public _Workbook                 myBook;
+        public _Worksheet                mySheet;
+        public Range                     myRange;
+        public MyExcelCollection[]       question;
+        public VESocket                  ves                = new VESocket(); // 建立連線並傳送相關資料
+        #endregion
 
         public MainForm()
         {
             InitializeComponent();
             Initialize();
-
         }
-        //建立連線並傳送相關資料
-        VESocket ves = new VESocket();
+        
+        // 初始化
         private void Initialize()
         {
-
             isLoadQuestion = false;
-            myBook = null;
-            myExcel = null;
-            mySheet = null;
-            myRange = null;
-            question = null;
+            myBook         = null;
+            myExcel        = null;
+            mySheet        = null;
+            myRange        = null;
+            question       = null;
 
             //把選項存入array
             selections[0] = radioButton1;
@@ -52,37 +54,25 @@ namespace VirtualExam
             selections[2] = radioButton3;
             selections[3] = radioButton4;
 
+            timeCount       = TIME; //預設15分鐘
+            time            = new Timer();
+            time.Interval   = 1000;
+            time.Tick       += new EventHandler(time_Tick);
+        }
+
+        // 倒數計時函式
+        private void time_Tick(object sender, EventArgs e)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(--timeCount);
+            lbTimeCounter.Text = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
+            if(timeCount == 0)
+            {
+                time.Stop();
+                MessageBox.Show("時間到!");
+            }
         } 
 
-        //處理例外狀況--未開啟題庫
-        private void NullLoadFileException()
-        {
-            if (!isLoadQuestion)
-            {
-                MessageBox.Show("請先開啟題庫");
-                button1_Click(null, null);
-            }
-            else
-                isLoadQuestion = true;
-        }
-
-        //開啟題庫
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog file = new OpenFileDialog();
-            if (file.ShowDialog() == DialogResult.OK)
-            {
-                openExcel(file.FileName);
-                label1.Text = "題庫：" + file.SafeFileName;
-                readExcel();
-                exam(0);
-                isLoadQuestion = true;
-
-            }
-
-        }
-
-        void openExcel(string path)
+        public void openExcel(string path)
         {
             myExcel = new Microsoft.Office.Interop.Excel.Application();
             myExcel.Workbooks.Open(path);
@@ -94,7 +84,7 @@ namespace VirtualExam
             mySheet.Activate();
             
         }
-        void readExcel()
+        public void readExcel()
         {
             
             int count = 1;
@@ -142,33 +132,97 @@ namespace VirtualExam
             btnNext.Enabled = true;
             btnAns.Enabled = true;
         }
-        void writeExcel()
+        public void writeExcel()
         {
             myRange = mySheet.get_Range("A1");
             myRange.Value = "test";
         }
-        bool exam(int i)
+
+        // 處理例外狀況--未開啟題庫
+        private void NullLoadFileException()
         {
-            bool r=false;
-            
+            if (!isLoadQuestion)
+            {
+                MessageBox.Show("請先開啟題庫");
+                button1_Click(null, null);
+            }
+            else
+                isLoadQuestion = true;
+        }
+      
+        // 顯示本題 題目及選項
+        private bool exam(int i)
+        {
+            bool r = false; 
             if (i < question.Length)
             {
                 lblQuestion.Text = question[i].getQuestion();
-                radioButton1.Text = question[i].getAnswerA();
-                radioButton2.Text = question[i].getAnswerB();
-                radioButton3.Text = question[i].getAnswerC();
-                radioButton4.Text = question[i].getAnswerD();
+                radioButton1.Text = "(A) " + question[i].getAnswerA();
+                radioButton2.Text = "(B) " + question[i].getAnswerB();
+                radioButton3.Text = "(C) " + question[i].getAnswerC();
+                radioButton4.Text = "(D) " + question[i].getAnswerD();
                 usersAnswer();
                 mark();
                 r = true;
             }
-
-            
             return r;
         }
 
+        // ???
+        private void mark()
+        {
+            checkBox1.Checked = question[examIndex].getMark();
+        }
 
+        // 顯示答案之實做
+        private void showAnswer()
+        {
+            if(question[examIndex].getShowAnswer())
+            { 
+                //顯示答案
+                foreach (RadioButton r in selections)
+                {
+                 //去掉選項標頭 ex.(A) (B) (C) (D)
+                 if (r.Text.Substring(4) == question[examIndex].getAnswer())
+                       r.ForeColor = Color.Green;
+                 else
+                      r.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                //把選項顏色恢復 黑色
+                foreach (RadioButton r in selections)
+                   r.ForeColor = Color.Black;
+            }
+        }
 
+        // 控制 CheckBox 勾選狀態
+        private void usersAnswer()
+        {
+            if (question[examIndex].getUsersAnswer() != "")
+            {
+                if (question[examIndex].getUsersAnswer() == "A")
+                    radioButton1.Checked = true;
+                else if (question[examIndex].getUsersAnswer() == "B")
+                    radioButton2.Checked = true;
+                else if (question[examIndex].getUsersAnswer() == "C")
+                    radioButton3.Checked = true;
+                else if (question[examIndex].getUsersAnswer() == "D")
+                    radioButton4.Checked = true;
+            }
+            else
+            {
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                radioButton3.Checked = false;
+                radioButton4.Checked = false;
+            }
+        }
+
+        #region 使用者控制項
+
+        // 左側樹狀題庫操作
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ves.Download(treeView1.SelectedNode.Name);
@@ -178,6 +232,12 @@ namespace VirtualExam
                 label1.Text = "題庫：" + treeView1.SelectedNode.Text;
                 question = ves.getMyExcelCollection();
                 exam(examIndex);
+
+                isLoadQuestion = true;
+                btnNext.Enabled = true;
+                btnAns.Enabled = true;
+
+                time.Start();
             }
 
             /*openExcel("C:\\Users\\CYY\\Desktop\\題庫\\" + treeView1.SelectedNode.Name);
@@ -187,7 +247,24 @@ namespace VirtualExam
             isLoadQuestion = true;*/
         }
 
-        //使用者選答案
+        // 開啟題庫
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                openExcel(file.FileName);
+                label1.Text = "題庫：" + file.SafeFileName;
+                readExcel();
+                exam(0);
+
+                isLoadQuestion = true;
+                time.Start();
+            }
+
+        }
+
+        // 使用者選答案
         private void userAnswer_CheckedChanged(object sender, EventArgs e)
         {
             NullLoadFileException();
@@ -209,16 +286,13 @@ namespace VirtualExam
             }
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
+        // "檢查" 按鈕
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            radioButton1.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
-            radioButton2.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
-            radioButton3.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
-            radioButton4.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
+            question[examIndex].setMark(checkBox1.Checked);
         }
 
-
+        // 上/下一題
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             exam(--examIndex);
@@ -229,65 +303,23 @@ namespace VirtualExam
             label3.Text = Convert.ToString(examIndex + 1);
             showAnswer();
         }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
-            exam(++examIndex);
-            if (examIndex == question.Length - 1)
-            {                
-                btnNext.Enabled = false;
-            }
             if (examIndex != 0)
                 btnPrevious.Enabled = true;
 
-            if(examIndex<question.Length)
+            if (examIndex >= question.Length - 1)
+                btnNext.Enabled = false;
+            else
+                exam(++examIndex);
+
+            if (examIndex < question.Length) 
                 label3.Text = Convert.ToString(examIndex + 1);
 
             showAnswer();
         }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            question[examIndex].setMark(checkBox1.Checked);
-        }
-        void usersAnswer()
-        {
-            if (question[examIndex].getUsersAnswer() != "")
-            {
-                if (question[examIndex].getUsersAnswer() == "A")
-                {
-                    radioButton1.Checked = true;
-                }
-                else if (question[examIndex].getUsersAnswer() == "B")
-                {
-                    radioButton2.Checked = true;
-                }
-                else if (question[examIndex].getUsersAnswer() == "C")
-                {
-                    radioButton3.Checked = true;
-                }
-                else if (question[examIndex].getUsersAnswer() == "D")
-                {
-                    radioButton4.Checked = true;
-                }
-            }
-            else
-            {
-                radioButton1.Checked = false;
-                radioButton2.Checked = false;
-                radioButton3.Checked = false;
-                radioButton4.Checked = false;
-            }
-        }
-        void mark()
-        {
-            checkBox1.Checked = question[examIndex].getMark();
-        }
-
-        /*
-         * 顯示答案 :  正解 綠色 ; 其餘 紅色 
-         * 顯示答案時間僅持續一題
-         */
+     
+        // 顯示答案 ( 顯示答案時間僅持續一題 )
         private void btnAns_Click(object sender, EventArgs e)
         {
             if(!question[examIndex].getShowAnswer())
@@ -308,35 +340,16 @@ namespace VirtualExam
         private void button2_Click(object sender, EventArgs e)
         {
             NullLoadFileException();
-            examIndex = Convert.ToInt16(textBox1.Text) - 1;
+            if (textBox1.Text == "")
+                MessageBox.Show("題號不可為空!");
+            else
+                examIndex = Convert.ToInt16(textBox1.Text) - 1; 
+
             exam(examIndex);
             label3.Text = Convert.ToString((Convert.ToInt16(textBox1.Text)));
         }
 
-        void showAnswer()
-        {
-            if(question[examIndex].getShowAnswer())
-            { 
-                //顯示答案
-                foreach (RadioButton r in selections)
-                {
-                 if (r.Text == question[examIndex].getAnswer())
-                       r.ForeColor = Color.Green;
-                 else
-                      r.ForeColor = Color.Red;
-                }
-
-            }
-            else
-            {
-                //把選項顏色恢復 黑色
-                foreach (RadioButton r in selections)
-                   r.ForeColor = Color.Black;
-            }
-           
-        }
-
-        //打亂題目
+        // 打亂題目
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             NullLoadFileException();
@@ -354,7 +367,7 @@ namespace VirtualExam
             
         }
 
-        //打亂選項
+        // 打亂選項
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -362,6 +375,21 @@ namespace VirtualExam
             foreach (MyExcelCollection m in question)
                 m.randOption();
             exam(examIndex);
+        }
+
+        #endregion
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            radioButton1.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
+            radioButton2.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
+            radioButton3.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
+            radioButton4.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
+        }
+        private void MainForm_Closing(object sender, FormClosingEventArgs e)
+        {
+            if(time.Enabled == true)
+                time.Stop();
         }
     }
 }

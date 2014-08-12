@@ -33,7 +33,6 @@ C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\Virtua
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.pdb
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Properties.Resources.resources
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.MainForm.resources
@@ -46,3 +45,4 @@ C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.pdb
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.dll
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.pdb
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.pdb
+C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
