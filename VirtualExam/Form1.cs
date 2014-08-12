@@ -12,6 +12,7 @@ using myexcelcollection;
 using vesocket;
 using veclient;
 
+
 namespace VirtualExam
 {
     public partial class MainForm : Form
@@ -33,7 +34,8 @@ namespace VirtualExam
             Initialize();
 
         }
-
+        //建立連線並傳送相關資料
+        VESocket ves = new VESocket();
         private void Initialize()
         {
 
@@ -49,8 +51,7 @@ namespace VirtualExam
             selections[1] = radioButton2;
             selections[2] = radioButton3;
             selections[3] = radioButton4;
-            //建立連線並傳送相關資料
-            VESocket ves = new VESocket();
+
         } 
 
         //處理例外狀況--未開啟題庫
@@ -170,11 +171,20 @@ namespace VirtualExam
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            openExcel("C:\\Users\\CYY\\Desktop\\題庫\\" + treeView1.SelectedNode.Name);
+            ves.Download(treeView1.SelectedNode.Name);
+
+            if(ves.getMyExcelCollection()!=null)
+            {
+                label1.Text = "題庫：" + treeView1.SelectedNode.Text;
+                question = ves.getMyExcelCollection();
+                exam(examIndex);
+            }
+
+            /*openExcel("C:\\Users\\CYY\\Desktop\\題庫\\" + treeView1.SelectedNode.Name);
             label1.Text = "題庫：" + treeView1.SelectedNode.Text;
             readExcel();
             exam(examIndex);
-            isLoadQuestion = true;
+            isLoadQuestion = true;*/
         }
 
         //使用者選答案

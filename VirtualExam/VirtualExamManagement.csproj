@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="downloadpath">
+      <HintPath>..\..\..\Visual Studio 2013\Projects\downloadpath\downloadpath\obj\Debug\downloadpath.dll</HintPath>
+    </Reference>
     <Reference Include="MyExcelCollection">
       <HintPath>..\..\..\Visual Studio 2013\Projects\MyExcelCollection\MyExcelCollection\obj\Debug\MyExcelCollection.dll</HintPath>
     </Reference>
