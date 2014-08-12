@@ -45,6 +45,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VEClient">
+      <HintPath>..\..\..\Visual Studio 2013\Projects\VEClient\VEClient\obj\Debug\VEClient.dll</HintPath>
+    </Reference>
+    <Reference Include="VESocket">
+      <HintPath>..\..\..\Visual Studio 2013\Projects\VESocket\VESocket\obj\Debug\VESocket.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">

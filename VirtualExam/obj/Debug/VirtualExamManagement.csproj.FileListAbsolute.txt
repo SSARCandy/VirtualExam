@@ -40,3 +40,7 @@ C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\Virtua
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.dll
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.pdb
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.MainForm.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.pdb
