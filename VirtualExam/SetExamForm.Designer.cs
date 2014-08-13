@@ -108,9 +108,9 @@
             "100"});
             this.comboBox2.Location = new System.Drawing.Point(130, 116);
             this.comboBox2.Name = "comboBox2";
+            this.comboBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.comboBox2.Size = new System.Drawing.Size(100, 20);
             this.comboBox2.TabIndex = 27;
-            this.comboBox2.Text = "0";
             // 
             // label3
             // 

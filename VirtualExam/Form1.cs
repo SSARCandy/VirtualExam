@@ -194,6 +194,7 @@ namespace VirtualExam
                 //把選項顏色恢復 黑色
                 foreach (RadioButton r in selections)
                    r.ForeColor = Color.Black;
+                btnAns.Text = "顯示答案";
             }
         }
 
@@ -238,6 +239,8 @@ namespace VirtualExam
                 btnNext.Enabled = true;
                 btnAns.Enabled = true;
 
+                // 開新題庫重新計時
+                timeCount = TIME;
                 time.Start();
             }
 
@@ -260,6 +263,9 @@ namespace VirtualExam
                 exam(0);
 
                 isLoadQuestion = true;
+           
+                // 開新題庫重新計時
+                timeCount = TIME;
                 time.Start();
             }
 
