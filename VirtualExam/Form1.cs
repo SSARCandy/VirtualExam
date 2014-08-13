@@ -21,9 +21,9 @@ namespace VirtualExam
         private RadioButton[]            selections          = new RadioButton[4]; // 放置選項
         private Timer                    time;
         private int                      timeCount;
-        private const int                TIME                = 900;    // 倒數計時時間 
         private bool                     isLoadQuestion      = false;  // 判斷是否已載入題庫
         private int                      examIndex           = 0;      // 目前題號
+        public int                       TIME                = 900;    // 倒數計時時間 
         public _Application              myExcel;
         public _Workbook                 myBook;
         public _Worksheet                mySheet;
@@ -64,7 +64,7 @@ namespace VirtualExam
         private void time_Tick(object sender, EventArgs e)
         {
             TimeSpan t = TimeSpan.FromSeconds(--timeCount);
-            lbTimeCounter.Text = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
+            lbTimeCounter.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
             if(timeCount == 0)
             {
                 time.Stop();
@@ -86,7 +86,6 @@ namespace VirtualExam
         }
         public void readExcel()
         {
-            
             int count = 1;
             string raws = "A" + count;
             myRange = mySheet.get_Range(raws);
@@ -129,7 +128,8 @@ namespace VirtualExam
             myRange = null;
             myExcel = null;
             GC.Collect();
-            btnNext.Enabled = true;
+            if (question.Length > 1)
+                btnNext.Enabled = true;
             btnAns.Enabled = true;
         }
         public void writeExcel()
@@ -343,10 +343,11 @@ namespace VirtualExam
             if (textBox1.Text == "")
                 MessageBox.Show("題號不可為空!");
             else
-                examIndex = Convert.ToInt16(textBox1.Text) - 1; 
-
-            exam(examIndex);
-            label3.Text = Convert.ToString((Convert.ToInt16(textBox1.Text)));
+            {
+                examIndex = Convert.ToInt16(textBox1.Text) - 1;
+                exam(examIndex);
+                label3.Text = Convert.ToString((Convert.ToInt16(textBox1.Text)));
+            }
         }
 
         // 打亂題目
@@ -364,7 +365,6 @@ namespace VirtualExam
                     exam(examIndex);
                 }
             }
-            
         }
 
         // 打亂選項
@@ -391,6 +391,20 @@ namespace VirtualExam
             if(time.Enabled == true)
                 time.Stop();
             
+        }
+
+        private void SetExam_Click(object sender, EventArgs e)
+        {
+            SetExamForm w = new SetExamForm();
+            if (w.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                this.TIME = w.Time;
+
+                if (time.Enabled == true)
+                    time.Stop();
+                timeCount = this.TIME;
+                time.Start();
+            }
         }
     }
 }

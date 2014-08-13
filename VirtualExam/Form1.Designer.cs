@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("證券商業務員");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("證基會", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("初階外匯");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("金研院", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("金融證照", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("經濟大會考");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("商學院", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("政治大學", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("證券商業務員");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("證基會", new System.Windows.Forms.TreeNode[] {
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("初階外匯");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("金研院", new System.Windows.Forms.TreeNode[] {
+            treeNode19});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("金融證照", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("經濟大會考");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("商學院", new System.Windows.Forms.TreeNode[] {
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("政治大學", new System.Windows.Forms.TreeNode[] {
+            treeNode23});
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.下載題庫ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提供題庫ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSetExam = new System.Windows.Forms.Button();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -69,9 +69,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkAns = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.lbTimeCounter = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,20 +94,20 @@
             this.提供題庫ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.提供題庫ToolStripMenuItem.Text = "提供題庫";
             // 
-            // button1
+            // btnSetExam
             // 
-            this.button1.Location = new System.Drawing.Point(148, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "開啟題庫";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSetExam.Location = new System.Drawing.Point(152, 42);
+            this.btnSetExam.Name = "btnSetExam";
+            this.btnSetExam.Size = new System.Drawing.Size(75, 23);
+            this.btnSetExam.TabIndex = 0;
+            this.btnSetExam.Text = "設定考試";
+            this.btnSetExam.UseVisualStyleBackColor = true;
+            this.btnSetExam.Click += new System.EventHandler(this.SetExam_Click);
             // 
             // lblQuestion
             // 
             this.lblQuestion.AutoEllipsis = true;
-            this.lblQuestion.Location = new System.Drawing.Point(160, 71);
+            this.lblQuestion.Location = new System.Drawing.Point(160, 96);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(642, 154);
             this.lblQuestion.TabIndex = 2;
@@ -118,7 +117,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.Color.Black;
-            this.radioButton1.Location = new System.Drawing.Point(160, 243);
+            this.radioButton1.Location = new System.Drawing.Point(160, 256);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(63, 16);
             this.radioButton1.TabIndex = 3;
@@ -129,7 +128,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(160, 265);
+            this.radioButton2.Location = new System.Drawing.Point(160, 278);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(63, 16);
             this.radioButton2.TabIndex = 4;
@@ -140,7 +139,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(160, 287);
+            this.radioButton3.Location = new System.Drawing.Point(160, 300);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(63, 16);
             this.radioButton3.TabIndex = 5;
@@ -151,7 +150,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(160, 309);
+            this.radioButton4.Location = new System.Drawing.Point(160, 322);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(63, 16);
             this.radioButton4.TabIndex = 6;
@@ -196,26 +195,26 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.ContextMenuStrip = this.contextMenuStrip1;
-            treeNode1.Name = "金融證照\\證基會\\證券商業務員.xlsx";
-            treeNode1.Text = "證券商業務員";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "證基會";
-            treeNode3.Name = "Node9";
-            treeNode3.Text = "初階外匯";
-            treeNode4.Name = "Node8";
-            treeNode4.Text = "金研院";
-            treeNode5.Name = "Node0";
-            treeNode5.Text = "金融證照";
-            treeNode6.Name = "Node2";
-            treeNode6.Text = "經濟大會考";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "商學院";
-            treeNode8.Name = "Node0";
-            treeNode8.Text = "政治大學";
+            treeNode17.ContextMenuStrip = this.contextMenuStrip1;
+            treeNode17.Name = "金融證照\\證基會\\證券商業務員.xlsx";
+            treeNode17.Text = "證券商業務員";
+            treeNode18.Name = "Node2";
+            treeNode18.Text = "證基會";
+            treeNode19.Name = "Node9";
+            treeNode19.Text = "初階外匯";
+            treeNode20.Name = "Node8";
+            treeNode20.Text = "金研院";
+            treeNode21.Name = "Node0";
+            treeNode21.Text = "金融證照";
+            treeNode22.Name = "Node2";
+            treeNode22.Text = "經濟大會考";
+            treeNode23.Name = "Node1";
+            treeNode23.Text = "商學院";
+            treeNode24.Name = "Node0";
+            treeNode24.Text = "政治大學";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode8});
+            treeNode21,
+            treeNode24});
             this.treeView1.Size = new System.Drawing.Size(142, 469);
             this.treeView1.TabIndex = 10;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -232,16 +231,16 @@
             // lblCountdown
             // 
             this.lblCountdown.AutoSize = true;
-            this.lblCountdown.Location = new System.Drawing.Point(505, 17);
+            this.lblCountdown.Location = new System.Drawing.Point(543, 17);
             this.lblCountdown.Name = "lblCountdown";
-            this.lblCountdown.Size = new System.Drawing.Size(65, 12);
+            this.lblCountdown.Size = new System.Drawing.Size(89, 12);
             this.lblCountdown.TabIndex = 13;
-            this.lblCountdown.Text = "倒數計時：";
+            this.lblCountdown.Text = "剩餘作答時間：";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(744, 13);
+            this.checkBox1.Location = new System.Drawing.Point(743, 48);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(48, 16);
             this.checkBox1.TabIndex = 14;
@@ -252,7 +251,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(249, 42);
+            this.checkBox2.Location = new System.Drawing.Point(546, 48);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(72, 16);
             this.checkBox2.TabIndex = 15;
@@ -263,7 +262,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(350, 42);
+            this.checkBox3.Location = new System.Drawing.Point(645, 48);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(72, 16);
             this.checkBox3.TabIndex = 16;
@@ -274,7 +273,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 46);
+            this.label2.Location = new System.Drawing.Point(248, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 17;
@@ -282,7 +281,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(186, 46);
+            this.label3.Location = new System.Drawing.Point(284, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 16);
             this.label3.TabIndex = 18;
@@ -292,7 +291,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(214, 46);
+            this.label4.Location = new System.Drawing.Point(312, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(8, 12);
             this.label4.TabIndex = 19;
@@ -301,7 +300,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(220, 46);
+            this.label5.Location = new System.Drawing.Point(318, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(11, 12);
             this.label5.TabIndex = 20;
@@ -343,38 +342,24 @@
             this.checkAns.Text = "檢查";
             this.checkAns.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "10",
-            "20",
-            "25",
-            "50",
-            "100"});
-            this.comboBox1.Location = new System.Drawing.Point(491, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(50, 20);
-            this.comboBox1.TabIndex = 25;
-            this.comboBox1.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(444, 41);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "題數：";
-            // 
             // lbTimeCounter
             // 
             this.lbTimeCounter.AutoSize = true;
-            this.lbTimeCounter.Location = new System.Drawing.Point(577, 17);
+            this.lbTimeCounter.Location = new System.Drawing.Point(644, 17);
             this.lbTimeCounter.Name = "lbTimeCounter";
-            this.lbTimeCounter.Size = new System.Drawing.Size(32, 12);
+            this.lbTimeCounter.Size = new System.Drawing.Size(47, 12);
             this.lbTimeCounter.TabIndex = 27;
-            this.lbTimeCounter.Text = "00:00";
+            this.lbTimeCounter.Text = "00:00:00";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(152, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "開啟題庫";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -382,9 +367,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 470);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbTimeCounter);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkAns);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
@@ -407,7 +391,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.lblQuestion);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSetExam);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_Closing);
@@ -420,7 +404,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSetExam;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
@@ -446,9 +430,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button checkAns;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbTimeCounter;
+        private System.Windows.Forms.Button button1;
     }
 }
 

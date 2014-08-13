@@ -46,3 +46,8 @@ C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.dll
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.pdb
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.pdb
 C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.pdb
+C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.pdb
+C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.pdb
+C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.pdb
+C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.SetExamForm.resources
