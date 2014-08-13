@@ -71,6 +71,7 @@
             this.checkAns = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.lbTimeCounter = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -366,12 +367,22 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "題數：";
             // 
+            // lbTimeCounter
+            // 
+            this.lbTimeCounter.AutoSize = true;
+            this.lbTimeCounter.Location = new System.Drawing.Point(577, 17);
+            this.lbTimeCounter.Name = "lbTimeCounter";
+            this.lbTimeCounter.Size = new System.Drawing.Size(32, 12);
+            this.lbTimeCounter.TabIndex = 27;
+            this.lbTimeCounter.Text = "00:00";
+            // 
             // MainForm
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 470);
+            this.Controls.Add(this.lbTimeCounter);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkAns);
@@ -399,7 +410,8 @@
             this.Controls.Add(this.button1);
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_Closing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -436,6 +448,7 @@
         private System.Windows.Forms.Button checkAns;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbTimeCounter;
     }
 }
 
