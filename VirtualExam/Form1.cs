@@ -231,7 +231,8 @@ namespace VirtualExam
             {
                 label1.Text = "題庫：" + treeView1.SelectedNode.Text;
                 question = ves.getMyExcelCollection();
-                exam(examIndex);
+                label5.Text = Convert.ToString(question.Length);
+                exam(0);
 
                 isLoadQuestion = true;
                 btnNext.Enabled = true;
@@ -305,16 +306,15 @@ namespace VirtualExam
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
+
+            exam(++examIndex);
+            if (examIndex == question.Length - 1)
+            {
+                btnNext.Enabled = false;
+            }
             if (examIndex != 0)
                 btnPrevious.Enabled = true;
-
-            if (examIndex >= question.Length - 1)
-                btnNext.Enabled = false;
-            else
-                exam(++examIndex);
-
-            if (examIndex < question.Length) 
-                label3.Text = Convert.ToString(examIndex + 1);
+            label3.Text = Convert.ToString(examIndex + 1);
 
             showAnswer();
         }
