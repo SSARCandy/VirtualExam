@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using myexcelcollection;
-using vesocket;
-using veclient;
+//using vesocket;
+//using veclient;
 
 
 namespace VirtualExam
@@ -168,7 +168,7 @@ namespace VirtualExam
             return r;
         }
 
-        // ???
+        // ???紀錄作答完畢後需要檢查之題目
         private void mark()
         {
             checkBox1.Checked = question[examIndex].getMark();
