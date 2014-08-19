@@ -33,7 +33,10 @@ namespace VirtualExam
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            
+            if (comboBox1.Text=="練習不熟題目")
+            {
+                ExamForm.enhanceMode = true;
+            }
             this.Close();
         }
     }

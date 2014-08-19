@@ -1,54 +1,28 @@
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe.config
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\bin\Debug\VirtualExam.pdb
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.ResolveComReference.cache
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Form1.resources
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Properties.Resources.resources
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.GenerateResource.Cache
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExam.exe
-c:\users\cyy\documents\visual studio 2013\Projects\VirtualExam\VirtualExam\obj\Debug\VirtualExam.pdb
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe.config
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.ResolveComReference.cache
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExam.exe
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExam.pdb
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\bin\Debug\VirtualExam.pdb
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Form1.resources
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Properties.Resources.resources
-C:\Users\Administrator\Desktop\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.GenerateResource.Cache
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe.config
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.ResolveComReference.cache
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.exe
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Properties.Resources.resources
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.GenerateResource.Cache
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe.config
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.ResolveComReference.cache
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.exe
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Properties.Resources.resources
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.GenerateResource.Cache
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.MainForm.resources
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.dll
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.dll
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.dll
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.pdb
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.dll
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.pdb
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\downloadpath.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyExcelCollection.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VEClient.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VESocket.pdb
-C:\Users\Administrator\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.SetExamForm.resources
-C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.SetExamForm.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csprojResolveAssemblyReference.cache
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.ExamForm.resources
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.MainForm.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Properties.Resources.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.SetExamForm.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExamManagement.csproj.GenerateResource.Cache
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.DownloadForm.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.exe.manifest
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\VirtualExam.application
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.TrustInfo.xml
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.exe.manifest
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.application
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyTreeView.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyTreeView.pdb
