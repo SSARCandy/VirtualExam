@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -48,7 +49,7 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblQuestion
@@ -123,6 +124,7 @@
             this.turnIn.TabIndex = 28;
             this.turnIn.Text = "交卷";
             this.turnIn.UseVisualStyleBackColor = true;
+            this.turnIn.Click += new System.EventHandler(this.turnIn_Click);
             // 
             // btnAns
             // 
@@ -233,7 +235,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(534, 350);
+            this.button1.Location = new System.Drawing.Point(470, 349);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 23);
             this.button1.TabIndex = 38;
@@ -250,21 +252,16 @@
             this.label1.TabIndex = 39;
             this.label1.Text = "<-- 未實做";
             // 
-            // label6
+            // timer1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(470, 354);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 12);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "<-- 未實做";
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 385);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox2);
@@ -310,13 +307,13 @@
         public System.Windows.Forms.RadioButton radioButton3;
         public System.Windows.Forms.RadioButton radioButton2;
         public System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

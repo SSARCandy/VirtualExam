@@ -11,14 +11,14 @@ namespace VirtualExam
 {
     class OpenExam
     {
-        public MyExcelCollection[] open()
+        public MyExcelCollection[] open(string examName)
         {
             MyExcelCollection[] mec = null;
             BinaryFormatter formatter = new BinaryFormatter();
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Exams";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Exams/";
             if (Directory.Exists(path))
             {
-                Stream stream = new FileStream(path + "/test.myobj", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream = new FileStream(path + examName + ".ve", FileMode.Open, FileAccess.Read, FileShare.Read);
                 mec = (MyExcelCollection[])formatter.Deserialize(stream);
                 stream.Close();
             }

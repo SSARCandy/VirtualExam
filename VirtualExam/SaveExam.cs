@@ -12,15 +12,16 @@ namespace VirtualExam
     class SaveExam
     {
         private FileStream saveFile;
-        public void save(MyExcelCollection[] mec)
+        public void save(MyExcelCollection[] mec,String examName)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Exams";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Exams/";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
             //saveFile = File.Create(path + "/" + mec.getExamName());
-            FileStream stream = File.Create(path + "/test.myobj");
+
+            FileStream stream = File.Create(path + examName + ".ve");
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, mec);
             stream.Close();

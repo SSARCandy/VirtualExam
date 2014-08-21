@@ -26,3 +26,5 @@ C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.exe.
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.application
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyTreeView.dll
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\MyTreeView.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Score.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.AboutUs.resources

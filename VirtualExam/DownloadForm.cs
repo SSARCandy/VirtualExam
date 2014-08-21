@@ -44,6 +44,7 @@ namespace VirtualExam
 
         }
         public static string dlExam;
+        public string examName;
         private void DownloadForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -52,8 +53,36 @@ namespace VirtualExam
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dlExam = treeView1.SelectedNode.Name;
+            dlExam = "\\" + treeView1.SelectedNode.FullPath;
+            examName = treeView1.SelectedNode.Text;
             MainForm.askDownload = true;
+            lblStat.Text="狀態：下載中...";
         }
+
+
+        public string getExamName()
+        {
+            return this.examName;
+        }
+
+        private void treeView1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void treeView1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeView1.SelectedNode.Text == "證券商業務員")
+            {
+                label1.Text = "題庫：證券商業務員";
+                label2.Text = "提供者：官方提供";
+            }
+        }
+
     }
 }

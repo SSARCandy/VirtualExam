@@ -36,6 +36,8 @@ namespace VirtualExam
             radioButton2.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
             radioButton3.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
             radioButton4.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
+
+            enhanceQuestion[0] = new MyExcelCollection();
         }
 
 
@@ -46,23 +48,32 @@ namespace VirtualExam
         public int TIME = 900;    // 倒數計時時間 
         private int timeCount;
         private Timer time;
-
-        public static bool enhanceMode = false;//是某為加強練習模式
+        public static bool enhanceMode = false;//是否為加強練習模式
+        public int questionAmt = 0;//練習題數
         #endregion
-        public MyExcelCollection[] question=null;
+        public MyExcelCollection[] question = null;
+        public MyExcelCollection[] enhanceQuestion = new MyExcelCollection[1];
         private void btnNext_Click(object sender, EventArgs e)
         {
             exam(++examIndex);
-            if (examIndex == question.Length - 1)
+            if (examIndex == question.Length - 1 || examIndex == enhanceQuestion.Length - 1)
             {
-                btnNext.Enabled = false;
+                    btnNext.Enabled = false;
             }
+            else if(questionAmt != 0)
+            {
+                if (examIndex>=questionAmt-1)
+                {
+                    btnNext.Enabled = false;
+                }
+            }
+
             if (examIndex != 0)
                 btnPrevious.Enabled = true;
             label3.Text = Convert.ToString(examIndex + 1);
 
             showAnswer();
-            
+
         }
         // 倒數計時函式
         private void time_Tick(object sender, EventArgs e)
@@ -79,114 +90,269 @@ namespace VirtualExam
         public bool exam(int i)
         {
             bool r = false;
-            if (i < question.Length)
+            if (questionAmt==0)//預設值=0，則練習全部
             {
-                lblQuestion.Text = question[i].getQuestion();
-                radioButton1.Text = "(A) " + question[i].getAnswerA();
-                radioButton2.Text = "(B) " + question[i].getAnswerB();
-                radioButton3.Text = "(C) " + question[i].getAnswerC();
-                radioButton4.Text = "(D) " + question[i].getAnswerD();
-                usersAnswer();
-                mark();
-                r = true;
-                int eh = 0;//紀錄不熟題目題數
-                while (enhanceMode && examIndex < question.Length-1)
+                if (i < question.Length && !enhanceMode)
                 {
-                    foreach(MyExcelCollection m in question)
-                    {
-                        if (m.getEnhance())
-                            eh++;
-                    }
-                    MessageBox.Show(Convert.ToString(eh));
-                    if (!question[i].getEnhance())
-                    {
-                        exam(++examIndex);
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    #region 正常模式
+                    lblQuestion.Text = question[i].getQuestion();
+                    radioButton1.Text = "(A) " + question[i].getAnswerA();
+                    radioButton2.Text = "(B) " + question[i].getAnswerB();
+                    radioButton3.Text = "(C) " + question[i].getAnswerC();
+                    radioButton4.Text = "(D) " + question[i].getAnswerD();
+                    usersAnswer();
+                    mark();
+                    r = true;//回覆狀態正常
+                    #endregion
                 }
+                else if (i < enhanceQuestion.Length)
+                {
+                    #region 加強模式
+                    lblQuestion.Text = enhanceQuestion[i].getQuestion();
+                    radioButton1.Text = "(A) " + enhanceQuestion[i].getAnswerA();
+                    radioButton2.Text = "(B) " + enhanceQuestion[i].getAnswerB();
+                    radioButton3.Text = "(C) " + enhanceQuestion[i].getAnswerC();
+                    radioButton4.Text = "(D) " + enhanceQuestion[i].getAnswerD();
+                    usersAnswer();
+                    mark();
+                    r = true;//回覆狀態正常
+                    #endregion
+                }
+            }else//非預設值，則練習使用者選擇的題數
+            {
+                label5.Text = Convert.ToString(questionAmt);
+                if (i < question.Length && !enhanceMode&&i<questionAmt)
+                {
+                    #region 正常模式
+                    lblQuestion.Text = question[i].getQuestion();
+                    radioButton1.Text = "(A) " + question[i].getAnswerA();
+                    radioButton2.Text = "(B) " + question[i].getAnswerB();
+                    radioButton3.Text = "(C) " + question[i].getAnswerC();
+                    radioButton4.Text = "(D) " + question[i].getAnswerD();
+                    usersAnswer();
+                    mark();
+                    r = true;//回覆狀態正常
+                    #endregion
+                }
+                else if (i < enhanceQuestion.Length&&i<questionAmt)
+                {
+                    #region 加強模式
+                    lblQuestion.Text = enhanceQuestion[i].getQuestion();
+                    radioButton1.Text = "(A) " + enhanceQuestion[i].getAnswerA();
+                    radioButton2.Text = "(B) " + enhanceQuestion[i].getAnswerB();
+                    radioButton3.Text = "(C) " + enhanceQuestion[i].getAnswerC();
+                    radioButton4.Text = "(D) " + enhanceQuestion[i].getAnswerD();
+                    usersAnswer();
+                    mark();
+                    r = true;//回覆狀態正常
+                    #endregion
+                }
+
             }
             return r;
         }
+        public void Enhance()
+        {
+            int eh = 1;//紀錄不熟題目題數
 
+            for (int j = 0; j < question.Length; j++)
+            {
+                if (question[j].getEnhance())
+                {
+
+                    Array.Resize(ref enhanceQuestion, eh);
+                    enhanceQuestion[eh - 1] = question[j];
+                    eh++;
+                }
+
+            }
+            lblQuestion.Text = enhanceQuestion[0].getQuestion();
+            radioButton1.Text = "(A) " + enhanceQuestion[0].getAnswerA();
+            radioButton2.Text = "(B) " + enhanceQuestion[0].getAnswerB();
+            radioButton3.Text = "(C) " + enhanceQuestion[0].getAnswerC();
+            radioButton4.Text = "(D) " + enhanceQuestion[0].getAnswerD();
+            usersAnswer();
+            mark();
+        }
         // ???紀錄作答完畢後需要檢查之題目
         private void mark()
         {
-            checkBox1.Checked = question[examIndex].getMark();
-            checkBox2.Checked = question[examIndex].getEnhance();
+            if (enhanceMode)
+            {
+                #region 加強模式
+                checkBox1.Checked = enhanceQuestion[examIndex].getMark();
+                checkBox2.Checked = enhanceQuestion[examIndex].getEnhance();
+                #endregion
+            }
+            else
+            {
+                #region 正常模式
+                checkBox1.Checked = question[examIndex].getMark();
+                checkBox2.Checked = question[examIndex].getEnhance();
+                #endregion
+            }
         }
         // 顯示答案之實做
         public void showAnswer()
         {
-            if (question[examIndex].getShowAnswer())
+            if (enhanceMode)
             {
-                //顯示答案
-                foreach (RadioButton r in selections)
+                #region 加強模式
+                if (enhanceQuestion[examIndex].getShowAnswer())
                 {
-                    //去掉選項標頭 ex.(A) (B) (C) (D)
-                    if (r.Text.Substring(4) == question[examIndex].getAnswer())
-                        r.ForeColor = Color.Green;
-                    else
-                        r.ForeColor = Color.Red;
+                    //顯示答案
+                    foreach (RadioButton r in selections)
+                    {
+                        //去掉選項標頭 ex.(A) (B) (C) (D)
+                        if (r.Text.Substring(4) == enhanceQuestion[examIndex].getAnswer())
+                            r.ForeColor = Color.Green;
+                        else
+                            r.ForeColor = Color.Red;
+                    }
                 }
+                else
+                {
+                    //把選項顏色恢復 黑色
+                    foreach (RadioButton r in selections)
+                        r.ForeColor = Color.Black;
+                    btnAns.Text = "顯示答案";
+                }
+                #endregion
             }
             else
             {
-                //把選項顏色恢復 黑色
-                foreach (RadioButton r in selections)
-                    r.ForeColor = Color.Black;
-                btnAns.Text = "顯示答案";
+                #region 正常模式
+                if (question[examIndex].getShowAnswer())
+                {
+                    //顯示答案
+                    foreach (RadioButton r in selections)
+                    {
+                        //去掉選項標頭 ex.(A) (B) (C) (D)
+                        if (r.Text.Substring(4) == question[examIndex].getAnswer())
+                            r.ForeColor = Color.Green;
+                        else
+                            r.ForeColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    //把選項顏色恢復 黑色
+                    foreach (RadioButton r in selections)
+                        r.ForeColor = Color.Black;
+                    btnAns.Text = "顯示答案";
+                }
+                #endregion
             }
         }
         // 控制 CheckBox 勾選狀態
-        private void usersAnswer()
+        public void usersAnswer()
         {
-            if (question[examIndex].getUsersAnswer() != "")
+            if (enhanceMode)
             {
-                if (question[examIndex].getUsersAnswer() == "A")
-                    radioButton1.Checked = true;
-                else if (question[examIndex].getUsersAnswer() == "B")
-                    radioButton2.Checked = true;
-                else if (question[examIndex].getUsersAnswer() == "C")
-                    radioButton3.Checked = true;
-                else if (question[examIndex].getUsersAnswer() == "D")
-                    radioButton4.Checked = true;
+                #region 加強模式
+                if (enhanceQuestion[examIndex].getUsersAnswer() != "")
+                {
+                    if (enhanceQuestion[examIndex].getUsersAnswer() == "A")
+                        radioButton1.Checked = true;
+                    else if (enhanceQuestion[examIndex].getUsersAnswer() == "B")
+                        radioButton2.Checked = true;
+                    else if (enhanceQuestion[examIndex].getUsersAnswer() == "C")
+                        radioButton3.Checked = true;
+                    else if (enhanceQuestion[examIndex].getUsersAnswer() == "D")
+                        radioButton4.Checked = true;
+                }
+                else
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                #endregion
             }
             else
             {
-                radioButton1.Checked = false;
-                radioButton2.Checked = false;
-                radioButton3.Checked = false;
-                radioButton4.Checked = false;
+                #region 正常模式
+
+                if (question[examIndex].getUsersAnswer() != "")
+                {
+                    if (question[examIndex].getUsersAnswer() == "A")
+                        radioButton1.Checked = true;
+                    else if (question[examIndex].getUsersAnswer() == "B")
+                        radioButton2.Checked = true;
+                    else if (question[examIndex].getUsersAnswer() == "C")
+                        radioButton3.Checked = true;
+                    else if (question[examIndex].getUsersAnswer() == "D")
+                        radioButton4.Checked = true;
+                }
+                else
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                #endregion
             }
         }
         // 使用者選答案
         private void userAnswer_CheckedChanged(object sender, EventArgs e)
         {
-           // NullLoadFileException();
-            if (radioButton1.Checked)
+            // NullLoadFileException();
+            if (enhanceMode)
             {
-                question[examIndex].setUsersAnswer("A");
+                #region 加強模式使用者作答情形
+                if (radioButton1.Checked)
+                {
+                    enhanceQuestion[examIndex].setUsersAnswer("A");
+                }
+                else if (radioButton2.Checked)
+                {
+                    enhanceQuestion[examIndex].setUsersAnswer("B");
+                }
+                else if (radioButton3.Checked)
+                {
+                    enhanceQuestion[examIndex].setUsersAnswer("C");
+                }
+                else if (radioButton4.Checked)
+                {
+                    enhanceQuestion[examIndex].setUsersAnswer("D");
+                }
+                #endregion
             }
-            else if (radioButton2.Checked)
+            else
             {
-                question[examIndex].setUsersAnswer("B");
-            }
-            else if (radioButton3.Checked)
-            {
-                question[examIndex].setUsersAnswer("C");
-            }
-            else if (radioButton4.Checked)
-            {
-                question[examIndex].setUsersAnswer("D");
+                #region 正常模式使用者作答情形
+                if (radioButton1.Checked)
+                {
+                    question[examIndex].setUsersAnswer("A");
+                }
+                else if (radioButton2.Checked)
+                {
+                    question[examIndex].setUsersAnswer("B");
+                }
+                else if (radioButton3.Checked)
+                {
+                    question[examIndex].setUsersAnswer("C");
+                }
+                else if (radioButton4.Checked)
+                {
+                    question[examIndex].setUsersAnswer("D");
+                }
+                #endregion
             }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            question[examIndex].setMark(checkBox1.Checked);
+            if (enhanceMode)
+            {
+                enhanceQuestion[examIndex].setMark(checkBox1.Checked);
+            }
+            else
+            {
+                question[examIndex].setMark(checkBox1.Checked);
+            }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -202,17 +368,37 @@ namespace VirtualExam
 
         private void btnAns_Click(object sender, EventArgs e)
         {
-            if (!question[examIndex].getShowAnswer())
+            if (enhanceMode)
             {
-                question[examIndex].setShowAnswer(true);
-                showAnswer();
-                btnAns.Text = "隱藏答案";
+                if (!enhanceQuestion[examIndex].getShowAnswer())
+                {
+                    enhanceQuestion[examIndex].setShowAnswer(true);
+                    showAnswer();
+                    btnAns.Text = "隱藏答案";
+                }
+                else
+                {
+                    enhanceQuestion[examIndex].setShowAnswer(false);
+                    showAnswer();
+                    btnAns.Text = "顯示答案";
+                }
             }
             else
             {
-                question[examIndex].setShowAnswer(false);
-                showAnswer();
-                btnAns.Text = "顯示答案";
+                #region 正常模式
+                if (!question[examIndex].getShowAnswer())
+                {
+                    question[examIndex].setShowAnswer(true);
+                    showAnswer();
+                    btnAns.Text = "隱藏答案";
+                }
+                else
+                {
+                    question[examIndex].setShowAnswer(false);
+                    showAnswer();
+                    btnAns.Text = "顯示答案";
+                }
+                #endregion
             }
         }
 
@@ -236,26 +422,115 @@ namespace VirtualExam
 
         private void ExamForm_Shown(object sender, EventArgs e)
         {
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            radioButton4.Checked = false;
-            label5.Text = Convert.ToString(question.Length);
+            if (enhanceMode)
+            {
+                #region 加強模式
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                radioButton3.Checked = false;
+                radioButton4.Checked = false;
+                label5.Text = Convert.ToString(enhanceQuestion.Length);
+                #endregion
+            }
+            else
+            {
+                #region 正常模式
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                radioButton3.Checked = false;
+                radioButton4.Checked = false;
+                label5.Text = Convert.ToString(question.Length);
+                #endregion
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            question[examIndex].setEnhance(checkBox2.Checked);
+            if (enhanceMode)
+            {
+                enhanceQuestion[examIndex].setEnhance(checkBox2.Checked);
+            }
+            else
+            {
+                question[examIndex].setEnhance(checkBox2.Checked);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             SaveExam se = new SaveExam();
-            se.save(question);
+            int eh = 0;
+            for (int i = 0; i < question.Length; i++)
+            {
+                //重置使用者作答答案
+                question[i].setUsersAnswer("");
+                //同步加強練習之陣列與正常模式之陣列
+                if (eh < enhanceQuestion.Length && question[i].getQuestion() == enhanceQuestion[eh].getQuestion())
+                {
+                    question[i].setEnhance(enhanceQuestion[eh].getEnhance());
+                    eh++;
+                }
+            }
+            //儲存正常模式之陣列
+            se.save(question, question[0].getExamName());
         }
 
-        
+        private void turnIn_Click(object sender, EventArgs e)
+        {
+            Score s = new Score();
+            if(enhanceMode)
+            {
+                int correct=0;
+                foreach(MyExcelCollection m in enhanceQuestion)
+                {
+                    if (m.compareAns())
+                        correct++;
+                    
+                }
+                s.setUsersScore(correct*100/enhanceQuestion.Length);
+            }
+            else
+            {
+                int correct = 0;
+                foreach (MyExcelCollection m in question)
+                {
+                    if (m.compareAns())
+                        correct++;
 
+                }
+                s.setUsersScore(correct*100 / question.Length);
+            }
+            
+            
+            s.Show();
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(questionAmt!=0)
+            {
+                label5.Text = Convert.ToString(questionAmt);
+            }
+            else if (enhanceMode)
+            {
+                if (enhanceQuestion != null)
+                    label5.Text = Convert.ToString(enhanceQuestion.Length);
+            }
+            else
+            {
+                if (question != null)
+                    label5.Text = Convert.ToString(question.Length);
+            }
+            label3.Text = Convert.ToString(examIndex+1);
+        }
+        public void setExamIndex(int examIndex)
+        {
+            this.examIndex = examIndex;
+        }
+        public void setQuestionAmt(int questionAmt)
+        {
+            this.questionAmt = questionAmt;
+        }
     }
 }

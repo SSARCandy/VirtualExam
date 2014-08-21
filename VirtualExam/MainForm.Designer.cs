@@ -34,7 +34,6 @@
             this.提供題庫ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSetExam = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
@@ -42,9 +41,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.檔案ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下載題庫ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.結束ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打亂選項ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.關於ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -55,6 +52,9 @@
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.關於我們ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -82,7 +82,7 @@
             // 
             // btnSetExam
             // 
-            this.btnSetExam.Location = new System.Drawing.Point(417, 331);
+            this.btnSetExam.Location = new System.Drawing.Point(417, 312);
             this.btnSetExam.Name = "btnSetExam";
             this.btnSetExam.Size = new System.Drawing.Size(75, 23);
             this.btnSetExam.TabIndex = 0;
@@ -92,50 +92,46 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(171, 331);
+            this.button2.Location = new System.Drawing.Point(174, 59);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 22;
             this.button2.Text = "跳題";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(252, 332);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 22);
-            this.textBox1.TabIndex = 23;
-            this.textBox1.Text = "1";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(336, 331);
+            this.button1.Location = new System.Drawing.Point(325, 59);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 28;
             this.button1.Text = "開啟題庫";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(90, 330);
+            this.btnSave.Location = new System.Drawing.Point(93, 59);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 29;
             this.btnSave.Text = "儲存題庫";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(9, 330);
+            this.btnOpen.Location = new System.Drawing.Point(12, 59);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 30;
             this.btnOpen.Text = "開啟題庫";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Visible = false;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // listBox1
@@ -163,8 +159,7 @@
             // 檔案ToolStripMenuItem
             // 
             this.檔案ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.下載題庫ToolStripMenuItem1,
-            this.結束ToolStripMenuItem});
+            this.下載題庫ToolStripMenuItem1});
             this.檔案ToolStripMenuItem.Name = "檔案ToolStripMenuItem";
             this.檔案ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.檔案ToolStripMenuItem.Text = "檔案";
@@ -176,28 +171,16 @@
             this.下載題庫ToolStripMenuItem1.Text = "下載題庫";
             this.下載題庫ToolStripMenuItem1.Click += new System.EventHandler(this.下載題庫ToolStripMenuItem1_Click);
             // 
-            // 結束ToolStripMenuItem
-            // 
-            this.結束ToolStripMenuItem.Name = "結束ToolStripMenuItem";
-            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.結束ToolStripMenuItem.Text = "結束";
-            // 
             // 工具ToolStripMenuItem
             // 
-            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.打亂選項ToolStripMenuItem});
             this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
             this.工具ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.工具ToolStripMenuItem.Text = "工具";
             // 
-            // 打亂選項ToolStripMenuItem
-            // 
-            this.打亂選項ToolStripMenuItem.Name = "打亂選項ToolStripMenuItem";
-            this.打亂選項ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.打亂選項ToolStripMenuItem.Text = "打亂選項";
-            // 
             // 關於ToolStripMenuItem
             // 
+            this.關於ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.關於我們ToolStripMenuItem});
             this.關於ToolStripMenuItem.Name = "關於ToolStripMenuItem";
             this.關於ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.關於ToolStripMenuItem.Text = "關於";
@@ -222,6 +205,7 @@
             this.statusStrip1.Size = new System.Drawing.Size(555, 22);
             this.statusStrip1.TabIndex = 33;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
@@ -264,12 +248,39 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(265, 61);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(54, 22);
+            this.textBox1.TabIndex = 23;
+            this.textBox1.Text = "1";
+            this.textBox1.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(417, 70);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 34;
+            this.button3.Text = "重新整理";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // 關於我們ToolStripMenuItem
+            // 
+            this.關於我們ToolStripMenuItem.Name = "關於我們ToolStripMenuItem";
+            this.關於我們ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.關於我們ToolStripMenuItem.Text = "關於我們";
+            this.關於我們ToolStripMenuItem.Click += new System.EventHandler(this.關於我們ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 426);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listBox1);
@@ -281,9 +292,10 @@
             this.Controls.Add(this.btnSetExam);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "主畫面";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_Closing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -301,7 +313,6 @@
         private System.Windows.Forms.ToolStripMenuItem 下載題庫ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 提供題庫ToolStripMenuItem;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnOpen;
@@ -309,9 +320,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 檔案ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 下載題庫ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 結束ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打亂選項ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 關於ToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -322,6 +331,9 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem 關於我們ToolStripMenuItem;
     }
 }
 

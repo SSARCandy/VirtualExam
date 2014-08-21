@@ -14,6 +14,7 @@ using veclient;
 using System.IO;
 using mytreeview;
 
+
 namespace VirtualExam
 {
     public partial class MainForm : Form
@@ -75,7 +76,7 @@ namespace VirtualExam
 
             veSocket = new VESocket();
 
-
+            AddDownloadedExam();
 
         }
 
@@ -259,8 +260,7 @@ namespace VirtualExam
         private void download()
         {
             //傳遞下載路徑
-            veSocket.Download(DownloadForm.dlExam);
-            // veSocket.Download(treeView1.SelectedNode.Name);
+            veSocket.Download(DownloadForm.dlExam);            
             //veSocket中的MyExcelCollection物件不為空，表示已成功由遠端伺服器下載題庫至該物件內
             if (veSocket.getMyExcelCollection() != null)
             {
@@ -269,11 +269,10 @@ namespace VirtualExam
                 question = veSocket.getMyExcelCollection();
                 //label5.Text = Convert.ToString(question.Length);
                 //exam(0);
-
-                // 開新題庫重新計時
-                timeCount = TIME;
-                time.Start();
-                saveExam.save(question);
+                question[0].setExamName(dlf.getExamName());
+                saveExam.save(question,dlf.getExamName());
+                Form.CheckForIllegalCrossThreadCalls = false;
+                dlf.lblStat.Text = "狀態：下載完成!!";
             }
         }
 
@@ -383,10 +382,7 @@ namespace VirtualExam
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            /*radioButton1.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
-            radioButton2.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
-            radioButton3.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
-            radioButton4.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);*/
+            
         }
         private void MainForm_Closing(object sender, FormClosingEventArgs e)
         {
@@ -397,41 +393,68 @@ namespace VirtualExam
 
         private void SetExam_Click(object sender, EventArgs e)
         {
+            if(listBox1.SelectedIndex==-1)
+            {
+                MessageBox.Show("請先選擇題庫");
+            }
+            else 
+            { 
             SetExamForm w = new SetExamForm();
             if (w.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                
+
                 this.TIME = w.Time;
 
                 if (time.Enabled == true)
                     time.Stop();
                 timeCount = this.TIME;
                 time.Start();
-                question=openExam.open();
+                question = openExam.open(listBox1.SelectedItem.ToString());
+                if (w.checkBox2.Checked)
+                {
+                    RandomQuestion();
+                }
                 string s = (string)listBox1.SelectedItem;
-
+                ef.question = null;
                 ef.question = this.question;
-                
-                /*ef.lblQuestion.Text = question[0].getQuestion();
-                ef.radioButton1.Text = question[0].getAnswerA();
-                ef.radioButton2.Text = question[0].getAnswerB();
-                ef.radioButton3.Text = question[0].getAnswerC();
-                ef.radioButton4.Text = question[0].getAnswerD();*/
+
                 ef.exam(0);
-                ef.showAnswer();
+                ef.setExamIndex(0);
+                //ef.label3.Text = Convert.ToString(1);
+
+
+                if (ExamForm.enhanceMode)
+                {
+                    ef.Enhance();
+                }
+                if(w.comboBox2.Text!="練習全部")
+                    ef.setQuestionAmt(Convert.ToInt16(w.comboBox2.Text));
                 ef.Show();
+                ef.question[0].setUsersAnswer("");
+            }
+            }
+        }
+
+        void RandomQuestion()
+        {
+            Random r = new Random();
+            
+            for (int i = 0; i < question.Length; i++)
+            {
+                int r1 = r.Next(0, question.Length);
+                MyExcelCollection m = question[i]; question[i] = question[r1]; question[r1] = m;
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveExam.save(question);
+            saveExam.save(question,dlf.getExamName());
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
             
-            question = openExam.open();
+            question = openExam.open(dlf.getExamName());
             isLoadQuestion = true;
             
         }
@@ -453,13 +476,20 @@ namespace VirtualExam
         {
             if (askDownload)
             {
-                download();
+                System.Threading.Thread dlTd = new System.Threading.Thread(download);
+                dlTd.Start();
+                //download();
                 askDownload = false;
             }
-            listBox1.Text = "";
-            listBox1.Items.Clear();
 
+
+
+           
+        }
+        void AddDownloadedExam()
+        {
             //自動載入已下載題庫
+            listBox1.Items.Clear();
             string examPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Exams";
             if (Directory.Exists(examPath))
             {
@@ -469,6 +499,21 @@ namespace VirtualExam
                     listBox1.Items.Add(Path.GetFileNameWithoutExtension(s));
                 }
             }
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            //AddDownloadedExam();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddDownloadedExam();
+        }
+
+        private void 關於我們ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
