@@ -28,7 +28,6 @@ namespace VirtualExam
         public SetExamForm()
         {
             InitializeComponent();
-            this.Time = 15;
         }
 
         private void btnApply_Click(object sender, EventArgs e)

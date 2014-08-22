@@ -465,6 +465,8 @@ namespace VirtualExam
             {
                 //重置使用者作答答案
                 question[i].setUsersAnswer("");
+                //重置顯示答案狀態
+                question[i].setShowAnswer(false);
                 //同步加強練習之陣列與正常模式之陣列
                 if (eh < enhanceQuestion.Length && question[i].getQuestion() == enhanceQuestion[eh].getQuestion())
                 {
@@ -531,6 +533,14 @@ namespace VirtualExam
         public void setQuestionAmt(int questionAmt)
         {
             this.questionAmt = questionAmt;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach(MyExcelCollection m in question)
+            {
+                m.setEnhance(checkBox3.Checked);
+            }
         }
     }
 }

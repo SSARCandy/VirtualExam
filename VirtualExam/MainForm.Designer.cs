@@ -43,6 +43,7 @@
             this.下載題庫ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.關於ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.關於我們ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -54,7 +55,9 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.關於我們ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -142,6 +145,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(480, 196);
             this.listBox1.TabIndex = 31;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -151,7 +155,7 @@
             this.關於ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(555, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(509, 24);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -184,6 +188,13 @@
             this.關於ToolStripMenuItem.Name = "關於ToolStripMenuItem";
             this.關於ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.關於ToolStripMenuItem.Text = "關於";
+            // 
+            // 關於我們ToolStripMenuItem
+            // 
+            this.關於我們ToolStripMenuItem.Name = "關於我們ToolStripMenuItem";
+            this.關於我們ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.關於我們ToolStripMenuItem.Text = "關於我們";
+            this.關於我們ToolStripMenuItem.Click += new System.EventHandler(this.關於我們ToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -267,19 +278,47 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // 關於我們ToolStripMenuItem
+            // button4
             // 
-            this.關於我們ToolStripMenuItem.Name = "關於我們ToolStripMenuItem";
-            this.關於我們ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.關於我們ToolStripMenuItem.Text = "關於我們";
-            this.關於我們ToolStripMenuItem.Click += new System.EventHandler(this.關於我們ToolStripMenuItem_Click);
+            this.button4.Location = new System.Drawing.Point(12, 301);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 35;
+            this.button4.Text = "儲存圖片";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(93, 301);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 37;
+            this.button5.Text = "讀取圖片";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(204, 306);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 12);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // MainForm
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 426);
+            this.ClientSize = new System.Drawing.Size(509, 426);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -334,6 +373,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem 關於我們ToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
     }
 }
 

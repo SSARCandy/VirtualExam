@@ -12,7 +12,7 @@ using myexcelcollection;
 using vesocket;
 using veclient;
 using System.IO;
-using mytreeview;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace VirtualExam
@@ -26,7 +26,7 @@ namespace VirtualExam
         private bool                     isLoadQuestion      = false;  // 判斷是否已載入題庫
         public static bool askDownload = false;//是否要求下載
         private int                      examIndex           = 0;      // 目前題號
-        public int                       TIME                = 900;    // 倒數計時時間 
+        public int                       TIME                = 7200;    // 倒數計時時間 
         public _Application              myExcel;
         public _Workbook                 myBook;
         public _Worksheet                mySheet;
@@ -112,29 +112,38 @@ namespace VirtualExam
             myRange = mySheet.get_Range(raws);
             Array.Resize(ref question, 1);
             while (Convert.ToString(myRange.Value)!=null)
-            {    
+            {
+                label1.Text = Convert.ToString(question.Length);//載入題數
                 raws = "A" + count;
                 myRange = mySheet.get_Range(raws);
-                string q = Convert.ToString(myRange.Value);
+                //string q = Convert.ToString(myRange.Value);由於50%會變成0.5 故改用myRange.Text
+                string q = myRange.Text;
 
                 raws = "B" + count;
                 myRange = mySheet.get_Range(raws);
-                string a = Convert.ToString(myRange.Value);
+                //string a = Convert.ToString(myRange.Value);
+                string a = myRange.Text;
 
                 raws = "C" + count;
                 myRange = mySheet.get_Range(raws);
-                string b = Convert.ToString(myRange.Value);
+                //string b = Convert.ToString(myRange.Value);
+                string b = myRange.Text;
 
                 raws = "D" + count;
                 myRange = mySheet.get_Range(raws);
-                string c = Convert.ToString(myRange.Value);
+                //string c = Convert.ToString(myRange.Value);
+                string c =myRange.Text;
+
                 raws = "E" + count;
                 myRange = mySheet.get_Range(raws);
-                string d = Convert.ToString(myRange.Value);
+                //string d = Convert.ToString(myRange.Value);
+                string d = myRange.Text;
 
                 raws = "F" + count;
                 myRange = mySheet.get_Range(raws);
-                string ans = Convert.ToString(myRange.Value);
+                //string ans = Convert.ToString(myRange.Value);
+                string ans = myRange.Text;
+
                 question[count-1] = new MyExcelCollection(q, a, b, c, d, ans);
                 Array.Resize(ref question, question.Length + 1);
 
@@ -246,17 +255,6 @@ namespace VirtualExam
 
         #region 使用者控制項
 
-        // 左側樹狀題庫操作
-        /*private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-            download();
-            /*openExcel("C:\\Users\\CYY\\Desktop\\題庫\\" + treeView1.SelectedNode.Name);
-            label1.Text = "題庫：" + treeView1.SelectedNode.Text;
-            readExcel();
-            exam(examIndex);
-            isLoadQuestion = true;
-        }*/
         private void download()
         {
             //傳遞下載路徑
@@ -296,73 +294,7 @@ namespace VirtualExam
 
         }
 
-        // 使用者選答案
-        /*private void userAnswer_CheckedChanged(object sender, EventArgs e)
-        {
-            NullLoadFileException();
-            if(radioButton1.Checked)
-            {
-                question[examIndex].setUsersAnswer("A");
-            }
-            else if (radioButton2.Checked)
-            {
-                question[examIndex].setUsersAnswer("B");
-            }
-            else if (radioButton3.Checked)
-            {
-                question[examIndex].setUsersAnswer("C");
-            }
-            else if (radioButton4.Checked)
-            {
-                question[examIndex].setUsersAnswer("D");
-            }
-        }*/
-
-        // "檢查" 按鈕
-
-
-        // 上/下一題
-        /*public void btnPrevious_Click(object sender, EventArgs e)
-        {
-            exam(--examIndex);
-            if (examIndex == 0)
-                btnPrevious.Enabled = false;
-            if (!btnNext.Enabled)
-                btnNext.Enabled = true;
-            label3.Text = Convert.ToString(examIndex + 1);
-            showAnswer();
-        }
-        public void btnNext_Click(object sender, EventArgs e)
-        {
-
-            exam(++examIndex);
-            if (examIndex == question.Length - 1)
-            {
-                btnNext.Enabled = false;
-            }
-            if (examIndex != 0)
-                btnPrevious.Enabled = true;
-            label3.Text = Convert.ToString(examIndex + 1);
-
-            showAnswer();
-        }
-     
-        // 顯示答案 ( 顯示答案時間僅持續一題 )
-        private void btnAns_Click(object sender, EventArgs e)
-        {
-            if(!question[examIndex].getShowAnswer())
-            {
-                question[examIndex].setShowAnswer(true);
-                showAnswer();
-                btnAns.Text = "隱藏答案";
-            }
-            else
-            {
-                question[examIndex].setShowAnswer(false);
-                showAnswer();
-                btnAns.Text = "顯示答案";
-            }
-        }*/
+        
 
         // 跳題
         private void button2_Click(object sender, EventArgs e)
@@ -420,9 +352,6 @@ namespace VirtualExam
 
                 ef.exam(0);
                 ef.setExamIndex(0);
-                //ef.label3.Text = Convert.ToString(1);
-
-
                 if (ExamForm.enhanceMode)
                 {
                     ef.Enhance();
@@ -448,15 +377,13 @@ namespace VirtualExam
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveExam.save(question,dlf.getExamName());
+            saveExam.save(question,"證券商業務員");
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            
-            question = openExam.open(dlf.getExamName());
-            isLoadQuestion = true;
-            
+            question = openExam.open("證券商業務員");
+            isLoadQuestion = true;            
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -466,9 +393,6 @@ namespace VirtualExam
 
         private void 下載題庫ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
-            //veSocket.SendTreeView(new MyTreeView());
-            //dlf.treeView1 = veSocket.GetTreeView().GetTreeView();
             dlf.Show();
         }
 
@@ -514,6 +438,34 @@ namespace VirtualExam
         private void 關於我們ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        //將圖片儲存到題目裡面
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if(ofd.ShowDialog()==DialogResult.OK)
+            {
+                question[0].setImage(Image.FromStream(new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read, FileShare.Read)));
+            }
+        }
+        //將圖片從題目中讀出(未知錯誤，可能是bitmap無法序列化)
+        private void button5_Click(object sender, EventArgs e)
+        {
+            object obj = question[0].getImage();
+
+            Bitmap bitmap = (Bitmap)obj;
+            Graphics tmpG = Graphics.FromImage(bitmap);
+            tmpG.DrawImage(bitmap,
+                               new System.Drawing.Rectangle(0, 0, 446, 387),
+                               new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                               GraphicsUnit.Pixel);
+
+            //pictureBox1.Image = bitmap;
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            SetExam_Click(null, null);
         }
 
     }
