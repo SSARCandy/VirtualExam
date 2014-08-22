@@ -211,36 +211,36 @@
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 409);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(555, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(509, 22);
             this.statusStrip1.TabIndex = 33;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 17);
-            this.toolStripStatusLabel1.Text = "連線狀態";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(67, 17);
+            this.toolStripStatusLabel1.Text = "連線狀態：";
+            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(43, 17);
-            this.toolStripStatusLabel2.Text = "連線中";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(55, 17);
+            this.toolStripStatusLabel2.Text = "中斷連線";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(55, 17);
-            this.toolStripStatusLabel3.Text = "線上人數";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(67, 17);
+            this.toolStripStatusLabel3.Text = "線上人數：";
             // 
             // toolStripStatusLabel4
             // 
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(27, 17);
-            this.toolStripStatusLabel4.Text = "X人";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(26, 17);
+            this.toolStripStatusLabel4.Text = "0人";
             // 
             // toolStripStatusLabel5
             // 
@@ -315,7 +315,7 @@
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 426);
+            this.ClientSize = new System.Drawing.Size(509, 431);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -364,7 +364,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
@@ -376,6 +375,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 

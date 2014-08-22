@@ -13,7 +13,7 @@ using vesocket;
 using veclient;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using OnlineClient;
 
 namespace VirtualExam
 {
@@ -75,7 +75,7 @@ namespace VirtualExam
             dlf = new DownloadForm();
 
             veSocket = new VESocket();
-
+            toolStripStatusLabel2.Text = "連線中...";
             AddDownloadedExam();
 
         }
@@ -320,7 +320,8 @@ namespace VirtualExam
         {
             if(time.Enabled == true)
                 time.Stop();
-            veSocket.getSck().Close();
+            //veSocket.getSck().Shutdown(System.Net.Sockets.SocketShutdown.Both);
+            (veSocket.getSck()).Close();
         }
 
         private void SetExam_Click(object sender, EventArgs e)
@@ -406,9 +407,18 @@ namespace VirtualExam
                 askDownload = false;
             }
 
-
-
-           
+            if (veSocket.getSck() != null)
+            {
+                if (veSocket.getSck().Connected)
+                {
+                    toolStripStatusLabel2.Text = "已連線";
+                }
+                else
+                {
+                    toolStripStatusLabel2.Text = "中斷連線";
+                }
+            }
+            toolStripStatusLabel4.Text = veSocket.GetOC() + "人";
         }
         void AddDownloadedExam()
         {
@@ -466,6 +476,11 @@ namespace VirtualExam
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             SetExam_Click(null, null);
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

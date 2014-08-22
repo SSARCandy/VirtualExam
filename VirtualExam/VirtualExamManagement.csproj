@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -73,6 +73,9 @@
     </Reference>
     <Reference Include="MyExcelCollection">
       <HintPath>..\..\..\Visual Studio 2013\Projects\MyExcelCollection\MyExcelCollection\obj\Debug\MyExcelCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="OnlineClient">
+      <HintPath>..\..\..\Visual Studio 2013\Projects\OnlineClient\OnlineClient\obj\Debug\OnlineClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
