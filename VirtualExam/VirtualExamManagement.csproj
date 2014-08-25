@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -137,6 +137,12 @@
     <Compile Include="SetExamForm.Designer.cs">
       <DependentUpon>SetExamForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutUs.resx">
       <DependentUpon>AboutUs.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SetExamForm.resx">
       <DependentUpon>SetExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

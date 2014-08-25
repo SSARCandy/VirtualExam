@@ -311,8 +311,6 @@
         private System.Windows.Forms.Button checkAns;
         private System.Windows.Forms.Button turnIn;
         private System.Windows.Forms.Button btnAns;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.CheckBox checkBox1;
         public System.Windows.Forms.Label lbTimeCounter;
         private System.Windows.Forms.Label lblCountdown;
@@ -330,5 +328,7 @@
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox checkBox3;
+        public System.Windows.Forms.Button btnPrevious;
+        public System.Windows.Forms.Button btnNext;
     }
 }

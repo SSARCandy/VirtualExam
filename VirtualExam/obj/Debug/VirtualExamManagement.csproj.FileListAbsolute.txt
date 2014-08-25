@@ -28,3 +28,4 @@ C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.Scor
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.AboutUs.resources
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\OnlineClient.dll
 C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\bin\Debug\OnlineClient.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VirtualExam\obj\Debug\VirtualExam.SignIn.resources

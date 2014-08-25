@@ -422,26 +422,7 @@ namespace VirtualExam
 
         private void ExamForm_Shown(object sender, EventArgs e)
         {
-            if (enhanceMode)
-            {
-                #region 加強模式
-                radioButton1.Checked = false;
-                radioButton2.Checked = false;
-                radioButton3.Checked = false;
-                radioButton4.Checked = false;
-                label5.Text = Convert.ToString(enhanceQuestion.Length);
-                #endregion
-            }
-            else
-            {
-                #region 正常模式
-                radioButton1.Checked = false;
-                radioButton2.Checked = false;
-                radioButton3.Checked = false;
-                radioButton4.Checked = false;
-                label5.Text = Convert.ToString(question.Length);
-                #endregion
-            }
+
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -481,30 +462,58 @@ namespace VirtualExam
         private void turnIn_Click(object sender, EventArgs e)
         {
             Score s = new Score();
-            if(enhanceMode)
+            if (questionAmt == 0)
             {
-                int correct=0;
-                foreach(MyExcelCollection m in enhanceQuestion)
+                if (enhanceMode)
                 {
-                    if (m.compareAns())
-                        correct++;
-                    
+                    int correct = 0;
+                    foreach (MyExcelCollection m in enhanceQuestion)
+                    {
+                        if (m.compareAns())
+                            correct++;
+
+                    }
+                    s.setUsersScore(correct * 100 / enhanceQuestion.Length);
                 }
-                s.setUsersScore(correct*100/enhanceQuestion.Length);
+                else
+                {
+                    int correct = 0;
+                    foreach (MyExcelCollection m in question)
+                    {
+                        if (m.compareAns())
+                            correct++;
+
+                    }
+                    s.setUsersScore(correct * 100 / question.Length);
+                }
             }
             else
             {
-                int correct = 0;
-                foreach (MyExcelCollection m in question)
+                if (enhanceMode)
                 {
-                    if (m.compareAns())
-                        correct++;
+                    int correct = 0;
+                    foreach (MyExcelCollection m in enhanceQuestion)
+                    {
+                        if (m.compareAns())
+                            correct++;
 
+                    }
+                    s.setUsersScore(correct * 100 / questionAmt);
                 }
-                s.setUsersScore(correct*100 / question.Length);
+                else
+                {
+                    int correct = 0;
+                    foreach (MyExcelCollection m in question)
+                    {
+                        if (m.compareAns())
+                            correct++;
+
+                    }
+                    s.setUsersScore(correct * 100 / questionAmt);
+                }
+
+                
             }
-            
-            
             s.Show();
         }
 
@@ -541,6 +550,13 @@ namespace VirtualExam
             {
                 m.setEnhance(checkBox3.Checked);
             }
+        }
+
+        public void Show()
+        {
+            btnPrevious.Enabled = false;
+            btnNext.Enabled = true;
+            this.Visible = true;
         }
     }
 }

@@ -74,7 +74,8 @@ namespace VirtualExam
             ef = new ExamForm();
             dlf = new DownloadForm();
 
-            veSocket = new VESocket();
+            //veSocket = new VESocket(SignIn.IP);
+            veSocket = new VESocket("219.85.200.148");
             toolStripStatusLabel2.Text = "連線中...";
             AddDownloadedExam();
 
@@ -357,10 +358,14 @@ namespace VirtualExam
                 {
                     ef.Enhance();
                 }
-                if(w.comboBox2.Text!="練習全部")
+                if (w.comboBox2.Text != "練習全部")
                     ef.setQuestionAmt(Convert.ToInt16(w.comboBox2.Text));
+                else
+                    ef.setQuestionAmt(0);
+
                 ef.Show();
                 ef.question[0].setUsersAnswer("");
+
             }
             }
         }
