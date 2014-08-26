@@ -558,5 +558,66 @@ namespace VirtualExam
             btnNext.Enabled = true;
             this.Visible = true;
         }
+
+        private void ExamForm_Resize(object sender, EventArgs e)
+        {
+            Point p = new Point();
+
+            p.X = this.Width - 117;
+            p.Y = 17;
+            checkBox1.Location = p;
+
+            p.Y = 37;
+            checkBox2.Location = p;
+
+            p.X = this.Width - 182;
+            p.Y = 21;
+            lbTimeCounter.Location = p;
+
+            p.X = this.Width - 283;
+            p.Y = 21;
+            lblCountdown.Location = p;
+
+            p.X = 2;
+            p.Y = this.Height - 75;
+            btnPrevious.Location = p;
+
+            p.X = 83;
+            btnNext.Location = p;
+
+            p.X = 164;
+            btnAns.Location = p;
+
+            p.X = 245;
+            btnCheckAns.Location = p;
+
+            p.X = 390;
+            btnTurnIn.Location = p;
+
+            p.X = 471;
+            btnSaveStat.Location = p;
+
+            p.X = 326;
+            p.Y = this.Height - 69;
+            label1.Location = p;
+
+            p.X = 12;
+            p.Y = this.Height - 100;
+            radioButton4.Location = p;
+
+            p.Y = this.Height - 120;
+            radioButton3.Location = p;
+
+            p.Y = this.Height - 140;
+            radioButton2.Location = p;
+
+            p.Y = this.Height - 160;
+            radioButton1.Location = p;
+
+            Size s=new Size();
+            s.Width = this.Width - 150;
+            s.Height = this.Height - 250;
+            lblQuestion.Size = s;
+        }
     }
 }
