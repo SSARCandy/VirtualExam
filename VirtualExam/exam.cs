@@ -452,7 +452,7 @@ namespace VirtualExam
 
         private void ExamForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (time.Enabled == true)
+            //if (time.Enabled == true)
                 time.Stop();
             e.Cancel = true;
             this.Hide();
@@ -605,6 +605,8 @@ namespace VirtualExam
             btnPrevious.Enabled = false;
             btnNext.Enabled = true;
             this.Visible = true;
+            this.timeCount = TIME;
+            time.Start();
         }
 
         private void ExamForm_Resize(object sender, EventArgs e)
@@ -684,6 +686,13 @@ namespace VirtualExam
             radioButton4.Size = s;
 
 
+        }
+
+        //可以用鍵盤作答
+        private void ExamForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A)
+                radioButton1.Checked = true;
         }
     }
 }

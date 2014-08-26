@@ -53,8 +53,8 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.rdbFontSmall = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbFontMid = new System.Windows.Forms.RadioButton();
             this.rdbFontBig = new System.Windows.Forms.RadioButton();
+            this.rdbFontMid = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -295,17 +295,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "字體";
             // 
-            // rdbFontMid
-            // 
-            this.rdbFontMid.AutoSize = true;
-            this.rdbFontMid.Location = new System.Drawing.Point(6, 44);
-            this.rdbFontMid.Name = "rdbFontMid";
-            this.rdbFontMid.Size = new System.Drawing.Size(35, 16);
-            this.rdbFontMid.TabIndex = 42;
-            this.rdbFontMid.TabStop = true;
-            this.rdbFontMid.Text = "中";
-            this.rdbFontMid.UseVisualStyleBackColor = true;
-            // 
             // rdbFontBig
             // 
             this.rdbFontBig.AutoSize = true;
@@ -316,6 +305,17 @@
             this.rdbFontBig.TabStop = true;
             this.rdbFontBig.Text = "大";
             this.rdbFontBig.UseVisualStyleBackColor = true;
+            // 
+            // rdbFontMid
+            // 
+            this.rdbFontMid.AutoSize = true;
+            this.rdbFontMid.Location = new System.Drawing.Point(6, 44);
+            this.rdbFontMid.Name = "rdbFontMid";
+            this.rdbFontMid.Size = new System.Drawing.Size(35, 16);
+            this.rdbFontMid.TabIndex = 42;
+            this.rdbFontMid.TabStop = true;
+            this.rdbFontMid.Text = "中";
+            this.rdbFontMid.UseVisualStyleBackColor = true;
             // 
             // ExamForm
             // 
@@ -349,6 +349,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExamForm_FormClosing);
             this.Load += new System.EventHandler(this.ExamForm_Load);
             this.Shown += new System.EventHandler(this.ExamForm_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ExamForm_KeyDown);
             this.Resize += new System.EventHandler(this.ExamForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -289,8 +289,8 @@ namespace VirtualExam
                 isLoadQuestion = true;
            
                 // 開新題庫重新計時
-                timeCount = TIME;
-                time.Start();
+                /*timeCount = TIME;
+                time.Start();*/
             }
 
         }
@@ -337,12 +337,13 @@ namespace VirtualExam
             if (w.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 
-                this.TIME = w.Time;
+                //this.TIME = w.Time;
 
-                if (time.Enabled == true)
+                /*if (time.Enabled == true)
                     time.Stop();
                 timeCount = this.TIME;
-                time.Start();
+                time.Start();*/
+                ef.TIME = w.Time;
                 question = openExam.open(listBox1.SelectedItem.ToString());
                 if (w.checkBox2.Checked)
                 {
@@ -423,7 +424,7 @@ namespace VirtualExam
                     toolStripStatusLabel2.Text = "中斷連線";
                 }
             }
-            toolStripStatusLabel4.Text = veSocket.GetOC() + "人";
+            //toolStripStatusLabel4.Text = veSocket.GetOC() + "人";
         }
         void AddDownloadedExam()
         {
