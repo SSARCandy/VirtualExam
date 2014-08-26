@@ -51,6 +51,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.rdbFontSmall = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbFontMid = new System.Windows.Forms.RadioButton();
+            this.rdbFontBig = new System.Windows.Forms.RadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblQuestion
@@ -64,10 +69,9 @@
             // 
             // radioButton4
             // 
-            this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(12, 353);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(63, 16);
+            this.radioButton4.Size = new System.Drawing.Size(850, 16);
             this.radioButton4.TabIndex = 10;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "answerD";
@@ -75,10 +79,9 @@
             // 
             // radioButton3
             // 
-            this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(12, 331);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(63, 16);
+            this.radioButton3.Size = new System.Drawing.Size(850, 16);
             this.radioButton3.TabIndex = 9;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "answerC";
@@ -86,10 +89,9 @@
             // 
             // radioButton2
             // 
-            this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(12, 309);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(63, 16);
+            this.radioButton2.Size = new System.Drawing.Size(850, 16);
             this.radioButton2.TabIndex = 8;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "answerB";
@@ -97,11 +99,10 @@
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.Color.Black;
             this.radioButton1.Location = new System.Drawing.Point(12, 287);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(63, 16);
+            this.radioButton1.Size = new System.Drawing.Size(850, 16);
             this.radioButton1.TabIndex = 7;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "answerA";
@@ -270,11 +271,58 @@
             this.checkBox3.Visible = false;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
+            // rdbFontSmall
+            // 
+            this.rdbFontSmall.AutoSize = true;
+            this.rdbFontSmall.Checked = true;
+            this.rdbFontSmall.Location = new System.Drawing.Point(6, 22);
+            this.rdbFontSmall.Name = "rdbFontSmall";
+            this.rdbFontSmall.Size = new System.Drawing.Size(35, 16);
+            this.rdbFontSmall.TabIndex = 41;
+            this.rdbFontSmall.TabStop = true;
+            this.rdbFontSmall.Text = "小";
+            this.rdbFontSmall.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbFontBig);
+            this.groupBox1.Controls.Add(this.rdbFontMid);
+            this.groupBox1.Controls.Add(this.rdbFontSmall);
+            this.groupBox1.Location = new System.Drawing.Point(800, 80);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(51, 88);
+            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "字體";
+            // 
+            // rdbFontMid
+            // 
+            this.rdbFontMid.AutoSize = true;
+            this.rdbFontMid.Location = new System.Drawing.Point(6, 44);
+            this.rdbFontMid.Name = "rdbFontMid";
+            this.rdbFontMid.Size = new System.Drawing.Size(35, 16);
+            this.rdbFontMid.TabIndex = 42;
+            this.rdbFontMid.TabStop = true;
+            this.rdbFontMid.Text = "中";
+            this.rdbFontMid.UseVisualStyleBackColor = true;
+            // 
+            // rdbFontBig
+            // 
+            this.rdbFontBig.AutoSize = true;
+            this.rdbFontBig.Location = new System.Drawing.Point(6, 66);
+            this.rdbFontBig.Name = "rdbFontBig";
+            this.rdbFontBig.Size = new System.Drawing.Size(35, 16);
+            this.rdbFontBig.TabIndex = 43;
+            this.rdbFontBig.TabStop = true;
+            this.rdbFontBig.Text = "大";
+            this.rdbFontBig.UseVisualStyleBackColor = true;
+            // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 411);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSaveStat);
@@ -302,6 +350,8 @@
             this.Load += new System.EventHandler(this.ExamForm_Load);
             this.Shown += new System.EventHandler(this.ExamForm_Shown);
             this.Resize += new System.EventHandler(this.ExamForm_Resize);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +381,9 @@
         private System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.Button btnPrevious;
         public System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.RadioButton rdbFontSmall;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdbFontBig;
+        private System.Windows.Forms.RadioButton rdbFontMid;
     }
 }

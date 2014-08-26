@@ -37,6 +37,10 @@ namespace VirtualExam
             radioButton3.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
             radioButton4.CheckedChanged += new EventHandler(userAnswer_CheckedChanged);
 
+            rdbFontSmall.CheckedChanged += new EventHandler(SetFontSize);
+            rdbFontMid.CheckedChanged += new EventHandler(SetFontSize);
+            rdbFontBig.CheckedChanged += new EventHandler(SetFontSize);
+
             enhanceQuestion[0] = new MyExcelCollection();
         }
 
@@ -294,6 +298,50 @@ namespace VirtualExam
                 }
                 #endregion
             }
+        }
+        //設定字體大小
+        private void SetFontSize(object sender,EventArgs e)
+        {
+            if(rdbFontSmall.Checked)
+            {
+                Single single = 9;
+                Size size=new Size();
+                size.Height = 9 + 7;
+                size.Width = radioButton1.Size.Width;
+
+                lblQuestion.Font = new Font("新細明體", single);
+                radioButton1.Font = new Font("新細明體", single); radioButton1.Size = size;
+                radioButton2.Font = new Font("新細明體", single);
+                radioButton3.Font = new Font("新細明體", single);
+                radioButton4.Font = new Font("新細明體", single);
+            }
+            else if(rdbFontMid.Checked)
+            {
+                Single single = 12 + 7;
+                Size size = new Size();
+                size.Height = 12;
+                size.Width = radioButton1.Size.Width;
+
+                lblQuestion.Font = new Font("新細明體", single);
+                radioButton1.Font = new Font("新細明體", single); radioButton1.Size = size;
+                radioButton2.Font = new Font("新細明體", single);
+                radioButton3.Font = new Font("新細明體", single);
+                radioButton4.Font = new Font("新細明體", single);
+            }
+            else
+            {
+                Single single = 15 + 7;
+                Size size = new Size();
+                size.Height = 15;
+                size.Width = radioButton1.Size.Width;
+
+                lblQuestion.Font = new Font("新細明體", single);
+                radioButton1.Font = new Font("新細明體", single); radioButton1.Size = size;
+                radioButton2.Font = new Font("新細明體", single);
+                radioButton3.Font = new Font("新細明體", single);
+                radioButton4.Font = new Font("新細明體", single);
+            }
+            ExamForm_Resize(null, null);
         }
         // 使用者選答案
         private void userAnswer_CheckedChanged(object sender, EventArgs e)
@@ -602,22 +650,40 @@ namespace VirtualExam
             label1.Location = p;
 
             p.X = 12;
-            p.Y = this.Height - 100;
+            p.Y = this.Height - 100 - Convert.ToInt16(radioButton4.Font.Size) + 9; 
             radioButton4.Location = p;
 
-            p.Y = this.Height - 120;
+            p.Y = radioButton4.Location.Y - 20 - Convert.ToInt16(radioButton4.Font.Size) + 9;
             radioButton3.Location = p;
 
-            p.Y = this.Height - 140;
+            p.Y = radioButton3.Location.Y - 20 - Convert.ToInt16(radioButton3.Font.Size) + 9;
             radioButton2.Location = p;
 
-            p.Y = this.Height - 160;
+            p.Y = radioButton2.Location.Y - 20 - Convert.ToInt16(radioButton2.Font.Size) + 9;
             radioButton1.Location = p;
 
+            p.X = this.Width - 100;
+            p.Y = 80;
+            groupBox1.Location = p;
             Size s=new Size();
             s.Width = this.Width - 150;
             s.Height = this.Height - 250;
             lblQuestion.Size = s;
+
+            s.Width = this.Width - 50;
+            s.Height = Convert.ToInt16(radioButton1.Font.Size) + 10;
+            radioButton1.Size = s;
+
+            s.Height = Convert.ToInt16(radioButton1.Font.Size) + 10;
+            radioButton2.Size = s;
+
+            s.Height = Convert.ToInt16(radioButton1.Font.Size) + 10;
+            radioButton3.Size = s;
+
+            s.Height = Convert.ToInt16(radioButton1.Font.Size) + 10;
+            radioButton4.Size = s;
+
+
         }
     }
 }
