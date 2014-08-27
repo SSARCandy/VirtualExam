@@ -22,7 +22,6 @@ C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Deb
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Debug\VEServer.exe
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Debug\VEServer.pdb
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Debug\VEServer.csprojResolveAssemblyReference.cache
-
 C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\VEServer.exe.config
 C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.csproj.ResolveComReference.cache
 C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.exe
