@@ -22,3 +22,21 @@ C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Deb
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Debug\VEServer.exe
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Debug\VEServer.pdb
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\obj\x86\Debug\VEServer.csprojResolveAssemblyReference.cache
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\VEServer.exe.config
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.csproj.ResolveComReference.cache
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.exe
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\VEServer.exe
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\VEServer.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\System.Data.SQLite.dll
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\downloadpath.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\MyExcelCollection.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\OnlineClient.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\System.Data.SQLite.xml
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\VEClient.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\VESocket.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\bin\x86\Debug\vesocketserver.pdb
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.csprojResolveAssemblyReference.cache
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.Form1.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.Properties.Resources.resources
+C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\VEServer\obj\x86\Debug\VEServer.csproj.GenerateResource.Cache

@@ -16,7 +16,7 @@ namespace VirtualExam
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (false)
+            if (true)
             {
                 Application.Run(new MainForm());
             }
