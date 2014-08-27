@@ -691,6 +691,11 @@ namespace VirtualExam
         //可以用鍵盤作答
         private void ExamForm_KeyDown(object sender, KeyEventArgs e)
         {
+            
+        }
+
+        private void ExamForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
             if (e.KeyCode == Keys.A)
                 radioButton1.Checked = true;
         }

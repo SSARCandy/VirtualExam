@@ -24,6 +24,8 @@ namespace VirtualExam
             
         }
         public static string IP;
+        public static string userName;
+        public static string password;
         void radioButton_CheckedChanged(object sender,EventArgs e)
         {
             SetIp();
@@ -32,9 +34,11 @@ namespace VirtualExam
         private void button1_Click(object sender, EventArgs e)
         {
             SetIp();
+            userName = textBox1.Text;
+            password = textBox2.Text;
             this.Hide();
             MainForm m = new MainForm();
-            m.Show();
+            //m.Show();
         }
 
         void SetIp()

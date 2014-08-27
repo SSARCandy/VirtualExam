@@ -75,7 +75,16 @@ namespace VirtualExam
             dlf = new DownloadForm();
 
             //veSocket = new VESocket(SignIn.IP);
-            veSocket = new VESocket("219.85.200.148");
+            veSocket = new VESocket("219.85.200.148", SignIn.userName, SignIn.password);
+            while(true)
+            {
+                if(veSocket.getCorrect())
+                {
+                    this.Show();
+                    break;
+                }
+                
+            }
             toolStripStatusLabel2.Text = "連線中...";
             AddDownloadedExam();
 

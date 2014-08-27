@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VEClient.dll" size="5120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VEClient.dll" size="5632">
       <assemblyIdentity name="VEClient" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7bbRA/m8jHaiiurSJgwoNNvaQ28=</dsig:DigestValue>
+        <dsig:DigestValue>L8MH2zZvlS7mcaBbzDYi5t6dCt0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,19 +97,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JKF8qJA0gGQcX59dfIaimZCVIE0=</dsig:DigestValue>
+        <dsig:DigestValue>JvJ04Ay7ikiTpTJqAfdekX+AZMI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VirtualExam.exe" size="51712">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VirtualExam.exe" size="52224">
       <assemblyIdentity name="VirtualExam" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>tayaIxwZ1qPNUlgicNkw+L+3DDE=</dsig:DigestValue>
+        <dsig:DigestValue>Tan009KWuY1oibAMf1cIlpUSGwM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

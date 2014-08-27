@@ -350,6 +350,7 @@
             this.Load += new System.EventHandler(this.ExamForm_Load);
             this.Shown += new System.EventHandler(this.ExamForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ExamForm_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.ExamForm_PreviewKeyDown);
             this.Resize += new System.EventHandler(this.ExamForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
