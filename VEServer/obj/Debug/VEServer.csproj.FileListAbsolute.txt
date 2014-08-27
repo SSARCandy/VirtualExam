@@ -23,22 +23,3 @@ C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\bin\Debug\M
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\bin\Debug\OnlineClient.dll
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\bin\Debug\OnlineClient.pdb
 C:\Users\CYY\Documents\Visual Studio 2013\Projects\VEServer\VEServer\bin\Debug\System.Data.SQLite.xml
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\VEServer.exe.config
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.csproj.ResolveComReference.cache
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.exe
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\VEServer.exe
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\VEServer.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\MyTreeView.dll
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\downloadpath.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\MyExcelCollection.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\OnlineClient.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\System.Data.SQLite.xml
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\VEClient.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\VESocket.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\vesocketserver.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\bin\Debug\MyTreeView.pdb
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.csprojResolveAssemblyReference.cache
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.Form1.resources
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.Properties.Resources.resources
-C:\Users\CYY\Documents\GitHub\VirtualExam\VEServer\obj\Debug\VEServer.csproj.GenerateResource.Cache

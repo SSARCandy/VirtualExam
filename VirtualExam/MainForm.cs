@@ -76,7 +76,7 @@ namespace VirtualExam
 
             //veSocket = new VESocket(SignIn.IP);
             veSocket = new VESocket("219.85.200.148", SignIn.userName, SignIn.password);
-            /*while(true)
+            while(true)
             {
                 if(veSocket.getCorrect())
                 {
@@ -84,7 +84,7 @@ namespace VirtualExam
                     break;
                 }
                 
-            }*/
+            }
             toolStripStatusLabel2.Text = "連線中...";
             AddDownloadedExam();
 
