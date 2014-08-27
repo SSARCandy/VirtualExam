@@ -113,7 +113,7 @@ namespace VEServer
                             lblClientIpAddress.Text = vec[Scki - 1].getIpAddress();
                             listBox1.Items.Add(vec[Scki - 1].getComputerName());
                             //讀取SQLite
-                            SQLiteConnection sqlite_conn = new SQLiteConnection();
+                            /*SQLiteConnection sqlite_conn = new SQLiteConnection();
                             SQLiteCommand sqlite_cmd = new SQLiteCommand();
                             
                             bool isRepeated = true;
@@ -190,7 +190,7 @@ namespace VEServer
                                 sqlite_datareader.Close();
                                 
                             }
-                            #endregion
+                            #endregion*/
                         }
                         else if (obj.GetType() == dlPath.GetType())
                         {
@@ -201,7 +201,10 @@ namespace VEServer
                     }
                 }
             }
-            catch (Exception e) { MessageBox.Show(e.Message); }
+            catch (Exception e) 
+            { 
+                //MessageBox.Show(e.Message);
+            }
         }
         void sendMyExcelCollection(string path,int scki)
         {
@@ -270,9 +273,9 @@ namespace VEServer
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach(VESocket s in SckSs)
+            foreach(Socket s in sckAccept)
             {
-                s.getSck().Close();
+                    s.Close();
             }
         }
 
@@ -283,7 +286,7 @@ namespace VEServer
             listBox2.Items.Clear();
             for(int i=1;i<SckSs.Length-1;i++)
             {
-                string s = "SocketIndex:" + i + " Connected:" + sckAccept[i].Connected;
+                string s = "SocketIndex:" + i + " Connected:" + sckAccept[i].Connected + vec[i - 1].getUserName();
                 listBox2.Items.Add(s);
                 if (sckAccept[i].Connected)
                     online++;
