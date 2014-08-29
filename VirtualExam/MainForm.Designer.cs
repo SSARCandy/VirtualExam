@@ -110,7 +110,6 @@
             this.button1.TabIndex = 28;
             this.button1.Text = "開啟題庫";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSave
@@ -121,7 +120,6 @@
             this.btnSave.TabIndex = 29;
             this.btnSave.Text = "儲存題庫";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnOpen

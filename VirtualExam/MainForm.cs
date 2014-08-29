@@ -34,6 +34,7 @@ namespace VirtualExam
         public MyExcelCollection[]       question;
         public VESocket veSocket;                // 建立連線並傳送相關資料
 
+        private string fileName;//檔案名稱
         private SaveExam saveExam;
         private OpenExam openExam;
 
@@ -294,6 +295,9 @@ namespace VirtualExam
             if (file.ShowDialog() == DialogResult.OK)
             {
                 openExcel(file.FileName);
+
+                fileName = Path.GetFileNameWithoutExtension(file.FileName);
+
                 //label1.Text = "題庫：" + file.SafeFileName;
                 readExcel();
                 //exam(0);
@@ -398,7 +402,7 @@ namespace VirtualExam
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveExam.save(question,"證券商業務員");
+            saveExam.save(question,fileName);
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
