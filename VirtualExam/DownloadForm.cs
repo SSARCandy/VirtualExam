@@ -54,16 +54,23 @@ namespace VirtualExam
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode.Text == "證券商業務員")
+            if (MainForm.connected)
             {
-                dlExam = "\\" + treeView1.SelectedNode.FullPath;
-                examName = treeView1.SelectedNode.Text;
-                MainForm.askDownload = true;
-                lblStat.Text = "狀態：下載中...";
+                if (treeView1.SelectedNode.Text == "證券商業務員")
+                {
+                    dlExam = "\\" + treeView1.SelectedNode.FullPath;
+                    examName = treeView1.SelectedNode.Text;
+                    MainForm.askDownload = true;
+                    lblStat.Text = "狀態：下載中...";
+                }
+                else
+                {
+                    MessageBox.Show("請點選題庫");
+                }
             }
             else
             {
-                MessageBox.Show("請點選題庫");
+                MessageBox.Show("未連線");
             }
         }
 

@@ -116,6 +116,7 @@
             this.btnCheckAns.TabIndex = 29;
             this.btnCheckAns.Text = "檢查";
             this.btnCheckAns.UseVisualStyleBackColor = true;
+            this.btnCheckAns.Visible = false;
             this.btnCheckAns.Click += new System.EventHandler(this.checkAns_Click);
             // 
             // btnTurnIn
@@ -168,6 +169,7 @@
             this.checkBox1.TabIndex = 30;
             this.checkBox1.Text = "檢查";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // lbTimeCounter
@@ -253,6 +255,7 @@
             this.label1.Size = new System.Drawing.Size(58, 12);
             this.label1.TabIndex = 39;
             this.label1.Text = "<-- 未實做";
+            this.label1.Visible = false;
             // 
             // timer1
             // 

@@ -470,7 +470,10 @@ namespace VirtualExam
 
         private void ExamForm_Shown(object sender, EventArgs e)
         {
-
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

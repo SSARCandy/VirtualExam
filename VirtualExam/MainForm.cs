@@ -39,6 +39,7 @@ namespace VirtualExam
 
         ExamForm ef;
         DownloadForm dlf;
+        public static bool connected = false;
         #endregion
 
         public MainForm()
@@ -73,6 +74,8 @@ namespace VirtualExam
 
             ef = new ExamForm();
             dlf = new DownloadForm();
+
+            
 
             //veSocket = new VESocket(SignIn.IP);
             veSocket = new VESocket("219.85.200.148", SignIn.userName, SignIn.password);
@@ -332,6 +335,8 @@ namespace VirtualExam
                 time.Stop();
             //veSocket.getSck().Shutdown(System.Net.Sockets.SocketShutdown.Both);
             (veSocket.getSck()).Close();
+            SignIn s=new SignIn();
+            s.Close();
         }
 
         private void SetExam_Click(object sender, EventArgs e)
@@ -427,10 +432,12 @@ namespace VirtualExam
                 if (veSocket.getSck().Connected)
                 {
                     toolStripStatusLabel2.Text = "已連線";
+                    connected = true;
                 }
                 else
                 {
                     toolStripStatusLabel2.Text = "中斷連線";
+                    connected = false;
                 }
             }
             //toolStripStatusLabel4.Text = veSocket.GetOC() + "人";

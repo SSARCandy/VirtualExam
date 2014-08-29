@@ -35,10 +35,10 @@ namespace VirtualExam
         {
             SetIp();
             userName = textBox1.Text;
-            password = textBox2.Text;
-            this.Hide();
+            password = textBox2.Text;          
             MainForm m = new MainForm();
-            //m.Show();
+            m.Show();
+            this.Hide();
         }
 
         void SetIp()
