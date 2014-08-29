@@ -102,14 +102,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VirtualExam.exe" size="52224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VirtualExam.exe" size="51712">
       <assemblyIdentity name="VirtualExam" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>ATx105HTiFp8uNYzzt/tNbWWnfw=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>QKpYqLNruoxfv8QYu0I9ziNOU4c=</dsig:DigestValue>
+>>>>>>> origin/master
       </hash>
     </dependentAssembly>
   </dependency>
