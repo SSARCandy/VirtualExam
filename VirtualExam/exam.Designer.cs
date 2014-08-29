@@ -322,8 +322,10 @@
             // 
             // ExamForm
             // 
+            this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(884, 411);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBox3);

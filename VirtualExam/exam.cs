@@ -54,9 +54,9 @@ namespace VirtualExam
         private Timer time;
         public static bool enhanceMode = false;//是否為加強練習模式
         public int questionAmt = 0;//練習題數
-        #endregion
         public MyExcelCollection[] question = null;
         public MyExcelCollection[] enhanceQuestion = new MyExcelCollection[1];
+       #endregion
         private void btnNext_Click(object sender, EventArgs e)
         {
             exam(++examIndex);
@@ -304,6 +304,10 @@ namespace VirtualExam
         {
             if(rdbFontSmall.Checked)
             {
+                lblQuestion.Font = new Font("新細明體", 12);
+                foreach(RadioButton r in selections)
+                    r.Font = new Font("新細明體", 12);
+                /*
                 Single single = 9;
                 Size size=new Size();
                 size.Height = 9 + 7;
@@ -314,9 +318,15 @@ namespace VirtualExam
                 radioButton2.Font = new Font("新細明體", single);
                 radioButton3.Font = new Font("新細明體", single);
                 radioButton4.Font = new Font("新細明體", single);
-            }
+            
+                 */
+                 }
             else if(rdbFontMid.Checked)
             {
+                lblQuestion.Font = new Font("新細明體", 18);
+                foreach (RadioButton r in selections)
+                    r.Font = new Font("新細明體", 18);
+/*
                 Single single = 12 + 7;
                 Size size = new Size();
                 size.Height = 12;
@@ -326,11 +336,15 @@ namespace VirtualExam
                 radioButton1.Font = new Font("新細明體", single); radioButton1.Size = size;
                 radioButton2.Font = new Font("新細明體", single);
                 radioButton3.Font = new Font("新細明體", single);
-                radioButton4.Font = new Font("新細明體", single);
+                radioButton4.Font = new Font("新細明體", single);*/
             }
             else
             {
-                Single single = 15 + 7;
+                lblQuestion.Font = new Font("新細明體", 24);
+                foreach (RadioButton r in selections)
+                    r.Font = new Font("新細明體", 24);
+
+               /* Single single = 15 + 7;
                 Size size = new Size();
                 size.Height = 15;
                 size.Width = radioButton1.Size.Width;
@@ -339,7 +353,7 @@ namespace VirtualExam
                 radioButton1.Font = new Font("新細明體", single); radioButton1.Size = size;
                 radioButton2.Font = new Font("新細明體", single);
                 radioButton3.Font = new Font("新細明體", single);
-                radioButton4.Font = new Font("新細明體", single);
+                radioButton4.Font = new Font("新細明體", single);*/
             }
             ExamForm_Resize(null, null);
         }
